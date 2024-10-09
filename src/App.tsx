@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 import { Button, Form } from 'react-bootstrap';
 
@@ -26,7 +26,7 @@ function App() {
   }
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
@@ -39,7 +39,7 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
       <Form>
         <Form.Label>API Key:</Form.Label>
         <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
@@ -48,6 +48,7 @@ function App() {
       </Form>
       <div>
         Lena Alrowais
+        John Kuss
       </div>
     </div>
   );
