@@ -50,6 +50,7 @@ function App() {
         Layan Almutairi
         Lena Alrowais
         John Kuss
+        Robert Kuss
       </div>
     </div>
   );
