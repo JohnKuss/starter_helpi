@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 //import logo from './logo.svg';
 import './App.css';
 import { Button, Form } from 'react-bootstrap';
+//import ReactDOM from "react-dom/client";
+import {Routes, Route, HashRouter, Link } from "react-router-dom";
+import {BasicCareerAssessment} from "./BasicAssessment";
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -52,6 +55,18 @@ function App() {
         John Kuss
         Robert Kuss
       </div>
+      <HashRouter>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/basicAssessment">Basic Career Assessment</Link>
+            </li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route path="/basicAssessment" element={<BasicCareerAssessment />} />
+        </Routes>
+      </HashRouter>
     </div>
   );
 }
