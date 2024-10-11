@@ -1,7 +1,7 @@
 export function BasicCareerAssessment(): React.JSX.Element {
     return (
         <div className="basicAssessment">
-            <header>Basic Career Assessment</header>
+            <h1>Basic Career Assessment</h1>
             <p>Estimated time: 5-10 minutes</p>
         </div>
     )
