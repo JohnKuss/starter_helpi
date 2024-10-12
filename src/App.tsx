@@ -1,3 +1,6 @@
+import DetailedQuestionsPage from './DetailedQuestionsPage';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+
 import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
@@ -25,32 +28,34 @@ function App() {
     setKey(event.target.value);
   }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <Form>
-        <Form.Label>API Key:</Form.Label>
-        <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
-        <br></br>
-        <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-      </Form>
-      <div>
-        Layan Almutairi
+    <Router> 
+      <div className="App">
+        {/*<header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>Edit <code>src/App.tsx</code> and save to reload.</p>
+          <Link className="App-link" to="/detailedAssessment">
+            <Button variant="primary">Go to Detailed Assessment</Button>
+          </Link>
+        </header>*/}
+          <Link className="App-link" to="/detailedAssessment">
+            <Button variant="primary">Go to Detailed Assessment</Button>
+          </Link>
+        {/*<Form>
+          <Form.Label>API Key:</Form.Label>
+          <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
+          <br />
+          <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
+        </Form>
+        <div>
+          Layan Almutairi
+        </div>*/}
+        <Routes>
+          <Route path="/detailedAssessment" element={<DetailedQuestionsPage />} />
+        </Routes>
       </div>
-    </div>
+    </Router>
   );
 }
 
 export default App;
+
