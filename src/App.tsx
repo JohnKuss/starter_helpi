@@ -2,9 +2,12 @@ import DetailedQuestionsPage from './DetailedQuestionsPage';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
 import React, { useState } from 'react';
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 import { Button, Form } from 'react-bootstrap';
+//import ReactDOM from "react-dom/client";
+import {Routes, Route, HashRouter, Link } from "react-router-dom";
+import {BasicCareerAssessment} from "./BasicAssessment";
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -28,32 +31,49 @@ function App() {
     setKey(event.target.value);
   }
   return (
-    <Router> 
-      <div className="App">
-        {/*<header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>Edit <code>src/App.tsx</code> and save to reload.</p>
-          <Link className="App-link" to="/detailedAssessment">
-            <Button variant="primary">Go to Detailed Assessment</Button>
-          </Link>
-        </header>*/}
-          <Link className="App-link" to="/detailedAssessment">
-            <Button variant="primary">Go to Detailed Assessment</Button>
-          </Link>
-        {/*<Form>
-          <Form.Label>API Key:</Form.Label>
-          <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
-          <br />
-          <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-        </Form>
-        <div>
-          Layan Almutairi
-        </div>*/}
+
+    <div className="App">
+      {/* <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.tsx</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header> */}
+      <Form>
+        <Form.Label>API Key:</Form.Label>
+        <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
+        <br></br>
+        <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
+      </Form>
+      <div>
+        Layan Almutairi
+        Lena Alrowais
+        John Kuss
+        Robert Kuss
+      </div>
+      <HashRouter>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/basicAssessment">Basic Career Assessment</Link>
+              <Link to="/detailedAssessment">Detailed Career Assessment</Link>
+            </li>
+          </ul>
+        </nav>
         <Routes>
+          <Route path="/basicAssessment" element={<BasicCareerAssessment />} />
           <Route path="/detailedAssessment" element={<DetailedQuestionsPage />} />
         </Routes>
-      </div>
-    </Router>
+      </HashRouter>
+    </div>
   );
 }
 
