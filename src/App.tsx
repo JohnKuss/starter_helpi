@@ -1,3 +1,6 @@
+import DetailedQuestionsPage from './DetailedQuestionsPage';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+
 import React, { useState } from 'react';
 //import logo from './logo.svg';
 import './App.css';
@@ -28,6 +31,7 @@ function App() {
     setKey(event.target.value);
   }
   return (
+
     <div className="App">
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -60,11 +64,13 @@ function App() {
           <ul>
             <li>
               <Link to="/basicAssessment">Basic Career Assessment</Link>
+              <Link to="/detailedAssessment">Detailed Career Assessment</Link>
             </li>
           </ul>
         </nav>
         <Routes>
           <Route path="/basicAssessment" element={<BasicCareerAssessment />} />
+          <Route path="/detailedAssessment" element={<DetailedQuestionsPage />} />
         </Routes>
       </HashRouter>
     </div>
@@ -72,3 +78,4 @@ function App() {
 }
 
 export default App;
+
