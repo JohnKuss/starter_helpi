@@ -11,6 +11,10 @@ const DetailedPage = () => {
       <div className="DetailedPage-content">
         <h2>Detailed Questions</h2>
 
+        <div>
+          <p>Estimated time: 10-15 minutes</p>
+        </div>
+
         {/* Placeholder for detailed questions form */}
         <div className="placeholder">
           <p>Placeholder for questions</p>
