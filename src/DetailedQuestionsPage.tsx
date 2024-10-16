@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import './DetailedQuestionsPage.css';
 
-const DetailedPage = () => {
+const DetailedQuestionsPage = () => {
   return (
     <div className="DetailedPage">
       <header className="DetailedPage-header">
@@ -10,12 +10,9 @@ const DetailedPage = () => {
       </header>
       <div className="DetailedPage-content">
         <h2>Detailed Questions</h2>
-
-        {/* Placeholder for detailed questions form */}
         <div className="placeholder">
           <p>Placeholder for questions</p>
         </div>
-
         <Button variant="primary" className="get-answer-btn" disabled>
           Get Answer
         </Button>
@@ -27,5 +24,5 @@ const DetailedPage = () => {
   );
 };
 
-export default DetailedPage;
+export default DetailedQuestionsPage;
 export {};

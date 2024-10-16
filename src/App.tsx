@@ -1,5 +1,5 @@
 import DetailedQuestionsPage from './DetailedQuestionsPage';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+//import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
 import React, { useState } from 'react';
 //import logo from './logo.svg';
