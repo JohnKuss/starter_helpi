@@ -37,7 +37,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (103 ms)
+  ✕ renders learn react link (112 ms)
 
   ● renders learn react link
 
@@ -89,6 +89,17 @@ FAIL src/App.test.tsx
               [36m</li>[39m
             [36m</ul>[39m
           [36m</nav>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"detailed-assessment-btn btn btn-primary"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<a[39m
+              [33mhref[39m=[32m"#/detailedAssessment"[39m
+              [33mstyle[39m=[32m"color: white; text-decoration: none;"[39m
+            [36m>[39m
+              [0mGo to Detailed Career Assessment[0m
+            [36m</a>[39m
+          [36m</button>[39m
         [36m</div>[39m
       [36m</div>[39m
     [36m</body>[39m
@@ -125,7 +136,7 @@ All files                  |      28 |    16.66 |    12.5 |      28 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        1.954 s
+Time:        1.973 s
 Ran all test suites.
 Jest did not exit one second after the test run has completed.
 
