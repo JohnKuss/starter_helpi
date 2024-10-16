@@ -10,6 +10,12 @@ const DetailedQuestionsPage = () => {
       </header>
       <div className="DetailedPage-content">
         <h2>Detailed Questions</h2>
+        <div>Detailed Career Assessment: Provides a series of more detailed questions to help generate results for your desired career.</div>
+        <div>
+          <p>Estimated time: 10-15 minutes</p>
+        </div>
+
+        {/* Placeholder for detailed questions form */}
         <div className="placeholder">
           <p>Placeholder for questions</p>
         </div>
