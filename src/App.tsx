@@ -66,6 +66,9 @@ function App() {
             </li>
           </ul>
         </nav>
+        <Button variant="primary" className="detailed-assessment-btn">
+          <Link to="/detailedAssessment" style={{ color: 'white', textDecoration: 'none' }}>Go to Detailed Career Assessment</Link>
+        </Button>
         <Routes>
           <Route path="/basicAssessment" element={<BasicCareerAssessment />} />
           <Route path="/detailedAssessment" element={<DetailedQuestionsPage />} />
