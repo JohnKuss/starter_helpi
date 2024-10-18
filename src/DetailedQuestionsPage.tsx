@@ -19,6 +19,8 @@ const DetailedQuestionsPage = () => {
         <div className="placeholder">
           <p>Placeholder for questions</p>
         </div>
+        {/*Not functional yet*/}
+        <Button>Pause Button</Button>
         <Button variant="primary" className="get-answer-btn" disabled>
           Get Answer
         </Button>
