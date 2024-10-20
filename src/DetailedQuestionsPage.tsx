@@ -37,6 +37,7 @@ const DetailedQuestionsPage = () => {
         <div>
           Detailed Career Assessment: Provides a series of more detailed questions to help generate results for your desired career.
         </div>
+        <div>Detailed Career Assessment: Provides a series of more detailed questions to help generate results for your desired career.</div>
         <div>
           <p>Estimated time: 10-15 minutes</p>
         </div>
@@ -149,10 +150,6 @@ const DetailedQuestionsPage = () => {
           </Form.Group>
         </Form>
 
-        {/* Placeholder for detailed questions form */}
-        <div className="placeholder">
-          <p>Placeholder for questions</p>
-        </div>
 
         {/* Not functional yet */}
         <Button variant="secondary">Pause Button</Button>
@@ -164,7 +161,6 @@ const DetailedQuestionsPage = () => {
           Get Answer
         </Button>
       </div>
-
       <footer className="DetailedPage-footer">
         <a href="/">Home</a> | <a href="/contact">Contact</a> | <a href="/about">About Us</a>
       </footer>
