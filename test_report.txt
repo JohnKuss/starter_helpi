@@ -37,7 +37,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (174 ms)
+  ✕ renders learn react link (130 ms)
 
   ● renders learn react link
 
@@ -125,10 +125,10 @@ FAIL src/App.test.tsx
 ---------------------------|---------|----------|---------|---------|-------------------
 File                       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ---------------------------|---------|----------|---------|---------|-------------------
-All files                  |      28 |    16.66 |    12.5 |      28 |                   
+All files                  |   18.91 |    16.66 |    5.55 |   19.44 |                   
  App.tsx                   |      60 |       50 |   33.33 |      60 | 15,23-29          
  BasicAssessment.tsx       |       0 |      100 |       0 |       0 | 4                 
- DetailedAssessment.tsx    |       0 |      100 |       0 |       0 | 2                 
+ DetailedAssessment.tsx    |       0 |      100 |       0 |       0 | 5-133             
  DetailedQuestionsPage.tsx |      50 |      100 |       0 |      50 | 6                 
  index.tsx                 |       0 |      100 |     100 |       0 | 7-19              
  reportWebVitals.ts        |       0 |        0 |       0 |       0 | 3-10              
@@ -136,11 +136,8 @@ All files                  |      28 |    16.66 |    12.5 |      28 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        1.977 s
+Time:        2.363 s
 Ran all test suites.
-Jest did not exit one second after the test run has completed.
-
-This usually means that there are asynchronous operations that weren't stopped in your tests. Consider running Jest with `--detectOpenHandles` to troubleshoot this issue.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
 declaring it in its dependencies. This is currently working because
