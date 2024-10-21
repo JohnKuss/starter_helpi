@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Form, Alert } from 'react-bootstrap';
+
 import './DetailedQuestionsPage.css';
 
 const DetailedQuestionsPage = () => {
@@ -16,6 +17,7 @@ const DetailedQuestionsPage = () => {
   const [allQuestionsCompleted, setAllQuestionsCompleted] = useState(false); 
   const totalQuestions = Object.keys(answers).length; 
 
+  // Handler for radio button change
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setAnswers(prevState => ({
@@ -47,6 +49,11 @@ const DetailedQuestionsPage = () => {
         <div>
           Detailed Career Assessment: Provides a series of more detailed questions to help generate results for your desired career.
         </div>
+        <div>
+          <p>Estimated time: 10-15 minutes</p>
+        </div>
+        </div>
+        <div>Detailed Career Assessment: Provides a series of more detailed questions to help generate results for your desired career.</div>
         <div>
           <p>Estimated time: 10-15 minutes</p>
         </div>
@@ -166,6 +173,7 @@ const DetailedQuestionsPage = () => {
           </Alert>
         )}
 
+        {/* Not functional yet */}
         <Button variant="secondary">Pause Button</Button>
         <Button
           variant="primary"
@@ -183,3 +191,4 @@ const DetailedQuestionsPage = () => {
 };
 
 export default DetailedQuestionsPage;
+export {}; 
