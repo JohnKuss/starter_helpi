@@ -34,7 +34,7 @@ export function BasicCareerAssessment(): React.JSX.Element {
 
       {/* You can add questions later and call incrementAnsweredQuestions when a question is answered */}
       {basicQuestions.map((question:string) => <div>
-        question
+        {question}
       </div> )}
       {/* Not functional yet */}
       <Button variant="secondary">Pause Button</Button>
