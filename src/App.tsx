@@ -6,6 +6,7 @@ import { Button, Form } from 'react-bootstrap';
 //import ReactDOM from "react-dom/client";
 import {Routes, Route, HashRouter, Link } from "react-router-dom";
 import {BasicCareerAssessment} from "./BasicAssessment";
+import HomePage from './HomePage';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -61,6 +62,7 @@ function App() {
         <nav>
           <ul>
             <li>
+              <Link to="/HomePage">Home</Link>
               <Link to="/basicAssessment">Basic Career Assessment</Link>
               <Link to="/detailedAssessment">Detailed Career Assessment</Link>
             </li>
@@ -70,6 +72,7 @@ function App() {
           <Link to="/detailedAssessment" style={{ color: 'white', textDecoration: 'none' }}>Go to Detailed Career Assessment</Link>
         </Button>
         <Routes>
+          <Route path="/HomePage" element={<HomePage />} />
           <Route path="/basicAssessment" element={<BasicCareerAssessment />} />
           <Route path="/detailedAssessment" element={<DetailedQuestionsPage />} />
         </Routes>
