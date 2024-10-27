@@ -38,7 +38,7 @@ const DetailedQuestionsPage = () => {
   };
 
   return (
-    <div className="DetailedPage">
+    <><div className="DetailedPage">
       <header className="DetailedPage-header">
         <h1>Career Helpi Quiz</h1>
       </header>
@@ -173,12 +173,10 @@ const DetailedQuestionsPage = () => {
         >
           Get Answer
         </Button>
-      </div>
-      <footer className="DetailedPage-footer">
+    </div><footer className="DetailedPage-footer">
         <a href="/">Home</a> | <a href="/contact">Contact</a> | <a href="/about">About Us</a>
-      </footer>
-    </div>
+      </footer></>
   );
 };
-
 export default DetailedQuestionsPage;
+export {};

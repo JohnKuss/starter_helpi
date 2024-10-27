@@ -13,6 +13,10 @@ export function BasicCareerAssessment(): React.JSX.Element {
     setAnsweredQuestions(prev => prev + 1);
   };
 
+  const basicQuestions = ["I prefer a structured work enviroment.","I am fine traveling for work.",
+    "I like working with others.","I am a good leader.","I prefer a creative job.",
+    "I would prefer to on-site.","I deal well with meetings and other formalities."];
+
   return (
     <div className="basicAssessment">
       <h1>Basic Career Assessment</h1>
@@ -29,7 +33,9 @@ export function BasicCareerAssessment(): React.JSX.Element {
       <p>Progress: {answeredQuestions}/{totalQuestions} questions answered</p>
 
       {/* You can add questions later and call incrementAnsweredQuestions when a question is answered */}
-      
+      {basicQuestions.map((question:string) => <div>
+        {question}
+      </div> )}
       {/* Not functional yet */}
       <Button variant="secondary">Pause Button</Button>
     </div>
