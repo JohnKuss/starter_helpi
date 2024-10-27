@@ -13,8 +13,7 @@ const DetailedQuestionsPage = () => {
     leadership: '',
   });
 
-  const [allQuestionsCompleted, setAllQuestionsCompleted] = useState(false); 
-  const totalQuestions = Object.keys(answers).length; 
+  const [allQuestionsCompleted, setAllQuestionsCompleted] = useState(false);  
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -25,13 +24,12 @@ const DetailedQuestionsPage = () => {
   };
 
   useEffect(() => {
+    const checkCompletion = () => {
+      const completed = Object.values(answers).every(answer => answer !== '');
+      setAllQuestionsCompleted(completed);
+    };
     checkCompletion();
-  }, [answers]); 
-
-  const checkCompletion = () => {
-    const completed = Object.values(answers).every(answer => answer !== '');
-    setAllQuestionsCompleted(completed); 
-  };
+  }, [answers]);
 
   const handleSubmit = () => {
     console.log('Detailed Career Assessment Answers:', answers);  
