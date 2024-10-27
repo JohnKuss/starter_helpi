@@ -12,13 +12,17 @@ const HomePage = () => {
         <h2>Quiz Options</h2>
         <div className="options-container">
           <div className="option">
-            <h3>Basic Questions</h3>
-            <p>Brief description of basic questions.</p>
+            <h3>Basic Assessment</h3>
+            <p>This assessment consists of 7 straightforward questions designed to quickly gauge 
+                your career preferences and suggest potential career paths. It’s 
+                a great starting point to understand your professional inclinations.</p>
             <Link to="/basicAssessment" className="option-link">Start Basic Assessment</Link>
           </div>
           <div className="option">
-            <h3>Detailed Questions</h3>
-            <p>Brief description of detailed questions.</p>
+            <h3>Detailed Assessment</h3>
+            <p>This assessment features 7 in-depth questions that delve deeper into your career 
+                interests and values. It aims to provide a more tailored analysis of suitable 
+                career options based on your responses.</p>
             <Link to="/detailedAssessment" className="option-link">Start Detailed Assessment</Link>
           </div>
         </div>

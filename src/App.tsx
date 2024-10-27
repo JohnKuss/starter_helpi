@@ -58,13 +58,13 @@ function App() {
       <HashRouter>
       <nav>
           <ul className="nav-links"> 
-            <li><Link to="/HomePage">Home</Link></li>
+            <li><Link to="/">Home</Link></li>
             <li><Link to="/basicAssessment">Basic Career Assessment</Link></li>
             <li><Link to="/detailedAssessment">Detailed Career Assessment</Link></li>
           </ul>
         </nav>
         <Routes>
-          <Route path="/HomePage" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/basicAssessment" element={<BasicCareerAssessment />} />
           <Route path="/detailedAssessment" element={<DetailedQuestionsPage />} />
         </Routes>
