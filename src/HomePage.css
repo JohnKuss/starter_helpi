@@ -22,10 +22,10 @@
   }
   
   .option {
-    border: 2px solid #007bff; /* Bootstrap primary color */
+    border: 2px solid #007bff; 
     border-radius: 8px;
     padding: 20px;
-    width: 40%; /* Adjust width as needed */
+    width: 40%; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
