@@ -1,0 +1,44 @@
+.home-page {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .home-header {
+    margin-bottom: 20px;
+  }
+  
+  .quiz-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .options-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .option {
+    border: 2px solid #007bff; /* Bootstrap primary color */
+    border-radius: 8px;
+    padding: 20px;
+    width: 40%; /* Adjust width as needed */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .option-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+  
+  .option-link:hover {
+    background-color: #a8b5c4;
+  }

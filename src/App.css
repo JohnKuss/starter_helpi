@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  position: relative; 
 }
 
 .App-logo {
@@ -27,6 +28,35 @@
 .App-link {
   color: #61dafb;
 }
+
+.names-container {
+  position: absolute; 
+  top: 100px;         
+  left: 1px;        
+  z-index: 10;       
+  text-align: left;  
+  color: black;      
+}
+
+.nav-links {
+  list-style: none;  
+  padding: 0;        
+  margin: 10px 1px;    
+  display: flex;     
+  justify-content: left; 
+  z-index: 20; 
+}
+
+.nav-links li {
+  margin-right: 20px; 
+}
+
+.nav-links a {
+  text-decoration: underline; 
+  color: #61dafb;       
+}
+
+
 
 @keyframes App-logo-spin {
   from {

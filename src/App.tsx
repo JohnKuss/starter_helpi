@@ -52,25 +52,17 @@ function App() {
         <br></br>
         <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
       </Form>
-      <div>
-        Layan Almutairi
-        Lena Alrowais
-        John Kuss
-        Robert Kuss
+      <div className="names-container">
+        <p>Layan Almutairi, Lena Alrowais, John Kuss, Robert Kuss</p> {/* Names in one line */}
       </div>
       <HashRouter>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/HomePage">Home</Link>
-              <Link to="/basicAssessment">Basic Career Assessment</Link>
-              <Link to="/detailedAssessment">Detailed Career Assessment</Link>
-            </li>
+      <nav>
+          <ul className="nav-links"> 
+            <li><Link to="/HomePage">Home</Link></li>
+            <li><Link to="/basicAssessment">Basic Career Assessment</Link></li>
+            <li><Link to="/detailedAssessment">Detailed Career Assessment</Link></li>
           </ul>
         </nav>
-        <Button variant="primary" className="detailed-assessment-btn">
-          <Link to="/detailedAssessment" style={{ color: 'white', textDecoration: 'none' }}>Go to Detailed Career Assessment</Link>
-        </Button>
         <Routes>
           <Route path="/HomePage" element={<HomePage />} />
           <Route path="/basicAssessment" element={<BasicCareerAssessment />} />
