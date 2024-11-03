@@ -15,7 +15,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #0d47a1;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -31,11 +31,35 @@
 
 .names-container {
   position: absolute; 
-  top: 100px;         
+  top: 50px;         
   left: 1px;        
   z-index: 10;       
   text-align: left;  
   color: black;      
+}
+.top-header {
+  background-color: #2196f3; /* Change this color to your desired header color */
+  color: rgb(210, 251, 198); /* Change text color */
+  padding: 10px; /* Add some padding */
+  text-align: left; /* Center align the links */
+}
+
+.top-header .nav-links {
+  list-style: none;  
+  padding: 0;        
+  margin: 0;    
+  display: flex;     
+  justify-content: left; /* Center the links horizontally */
+}
+
+.top-header .nav-links a {
+  text-decoration: underline; /* Remove underline */
+  color: white; /* Link color */
+  margin: 10px; /* Add spacing between links */
+}
+
+.top-header .nav-links a:hover {
+  text-decoration: none; /* Underline on hover */
 }
 
 .nav-links {
@@ -53,7 +77,30 @@
 
 .nav-links a {
   text-decoration: underline; 
-  color: #61dafb;       
+  color: #b1f8b4;       
+}
+.api-key-input {
+  background-color: #ffffff; /* White background */
+  border: 2px solid #2196f3; /* Blue border */
+  border-radius: 4px; /* Rounded corners */
+  padding: 10px; /* Padding for comfort */
+  width: 300px; /* Fixed width */
+  color: #0d47a1; /* Dark blue text */
+  font-size: 16px; /* Font size */
+}
+
+.submit-button {
+  background-color: #2196f3; /* Primary blue */
+  color: white; /* White text */
+  border: none; /* Remove default border */
+  padding: 10px 20px; /* Padding for button */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 16px; /* Font size */
+}
+
+.submit-button:hover {
+  background-color: #90caf9; /* Light sky blue on hover */
 }
 
 

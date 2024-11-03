@@ -46,29 +46,33 @@ function App() {
           Learn React
         </a>
       </header> */}
-      <Form>
-        <Form.Label>API Key:</Form.Label>
-        <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
-        <br></br>
-        <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-      </Form>
       <div className="names-container">
         <p>Layan Almutairi, Lena Alrowais, John Kuss, Robert Kuss</p> {/* Names in one line */}
       </div>
       <HashRouter>
-      <nav>
-          <ul className="nav-links"> 
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/basicAssessment">Basic Career Assessment</Link></li>
-            <li><Link to="/detailedAssessment">Detailed Career Assessment</Link></li>
-          </ul>
-        </nav>
+      <header className="top-header">
+          <nav>
+            <ul className="nav-links"> 
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/basicAssessment">Basic Career Assessment</Link></li>
+              <li><Link to="/detailedAssessment">Detailed Career Assessment</Link></li>
+            </ul>
+          </nav>
+        </header>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/basicAssessment" element={<BasicCareerAssessment />} />
           <Route path="/detailedAssessment" element={<DetailedQuestionsPage />} />
         </Routes>
       </HashRouter>
+      <footer>
+      <Form>
+        <Form.Label>API Key:</Form.Label>
+        <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
+        <br></br>
+        <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
+      </Form>
+      </footer>
     </div>
   );
 }
