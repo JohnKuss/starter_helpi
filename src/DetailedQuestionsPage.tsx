@@ -172,9 +172,6 @@ const DetailedQuestionsPage = () => {
           Get Answer
         </Button>
       </div>
-      <footer className="DetailedPage-footer">
-        <a href="/">Home</a> | <a href="/contact">Contact</a> | <a href="/about">About Us</a>
-      </footer>
     </div>
   );
 };
