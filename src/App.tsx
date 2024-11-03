@@ -66,13 +66,25 @@ function App() {
         </Routes>
       </HashRouter>
       <footer>
-      <Form>
-        <Form.Label>API Key:</Form.Label>
-        <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
-        <br></br>
-        <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-      </Form>
-      </footer>
+    <div className="api-key-container"> {/* Added a wrapper for centering */}
+        <Form>
+            <Form.Label>API Key:</Form.Label>
+            <Form.Control 
+                type="password" 
+                placeholder="Insert API Key Here" 
+                onChange={changeKey} 
+                className="api-key-input" 
+            />
+            <br /><br />
+            <Button 
+                className="submit-button" 
+                onClick={handleSubmit}
+            >
+                Submit
+            </Button>
+        </Form>
+    </div>
+</footer>
     </div>
   );
 }

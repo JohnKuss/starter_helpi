@@ -38,10 +38,10 @@
   color: black;      
 }
 .top-header {
-  background-color: #2196f3; /* Change this color to your desired header color */
-  color: rgb(210, 251, 198); /* Change text color */
-  padding: 10px; /* Add some padding */
-  text-align: left; /* Center align the links */
+  background-color: #2196f3; 
+  color: black; 
+  padding: 10px; 
+  text-align: left; 
 }
 
 .top-header .nav-links {
@@ -49,17 +49,17 @@
   padding: 0;        
   margin: 0;    
   display: flex;     
-  justify-content: left; /* Center the links horizontally */
+  justify-content: left; 
 }
 
 .top-header .nav-links a {
-  text-decoration: underline; /* Remove underline */
-  color: white; /* Link color */
-  margin: 10px; /* Add spacing between links */
+  text-decoration: none; 
+  color: black; 
+  margin: 10px; 
 }
 
 .top-header .nav-links a:hover {
-  text-decoration: none; /* Underline on hover */
+  text-decoration: underline; 
 }
 
 .nav-links {
@@ -79,31 +79,36 @@
   text-decoration: underline; 
   color: #b1f8b4;       
 }
+.api-key-container {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: flex-start;
+  margin: 20px 0; 
+}
+
 .api-key-input {
-  background-color: #ffffff; /* White background */
-  border: 2px solid #2196f3; /* Blue border */
-  border-radius: 4px; /* Rounded corners */
-  padding: 10px; /* Padding for comfort */
-  width: 300px; /* Fixed width */
-  color: #0d47a1; /* Dark blue text */
-  font-size: 16px; /* Font size */
+  background-color: #ffffff; 
+  border: 2px solid #2196f3; 
+  border-radius: 4px; 
+  padding: 10px; 
+  width: 300px; 
+  color: #0d47a1; 
+  font-size: 16px; 
+  margin-bottom: -20px; 
 }
-
 .submit-button {
-  background-color: #2196f3; /* Primary blue */
-  color: white; /* White text */
-  border: none; /* Remove default border */
-  padding: 10px 20px; /* Padding for button */
-  border-radius: 4px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor on hover */
-  font-size: 16px; /* Font size */
+  background-color: #2196f3; 
+  color: white; 
+  border: none; 
+  padding: 10px 20px; 
+  border-radius: 4px; 
+  cursor: pointer; 
+  margin-top: -10px; 
 }
-
 .submit-button:hover {
-  background-color: #90caf9; /* Light sky blue on hover */
+  background-color: #90caf9; 
 }
-
-
 
 @keyframes App-logo-spin {
   from {
