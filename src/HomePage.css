@@ -7,7 +7,6 @@
   }
   
   .home-header {
-    /*background-color: beige;*/
     margin-bottom: 20px;
   }
   
@@ -26,6 +25,7 @@
   }
   
   .option {
+    background-color: #ecf5fc;
     border: 2px solid #2196f3; 
     border-radius: 8px;
     padding: 20px;
@@ -44,6 +44,6 @@
   }
   
   .option-link:hover {
-    background-color: #2196f3; /* Primary blue on hover */
+    background-color: #2196f3; 
     color: white;
   }
