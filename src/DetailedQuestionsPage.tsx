@@ -175,5 +175,5 @@ const DetailedQuestionsPage = () => {
     </div>
   );
 };
-
 export default DetailedQuestionsPage;
+export {};
