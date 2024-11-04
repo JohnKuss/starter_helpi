@@ -64,10 +64,9 @@ export function BasicCareerAssessment(): React.JSX.Element {
       </Form.Group>
       <Form.Group controlId="stabilityImportance">
         <Form.Label>3. Job stability importance?</Form.Label>
-        <Form.Select value="question3">
-          {["","1","2","3","4","5","6","7","8","9","10"].map((answer: string)=>
-          <option value={answer}>{answer}</option>
-          )}
+        <Form.Select>
+          {["","1","2","3","4","5","6","7","8","9","10"].map((answer: string) =>
+          <option key={answer} value={answer}>{answer}</option>)}
         </Form.Select>
       </Form.Group>
       <Form.Group>
