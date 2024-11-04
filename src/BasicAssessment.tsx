@@ -7,11 +7,12 @@ export function BasicCareerAssessment(): React.JSX.Element {
 
   // State to track the number of answered questions
   const [answeredQuestions, setAnsweredQuestions] = useState<number>(0);
-
+  //Arbitrarily calling setAnsweredQuestions as a temporary solution to issue with site not deploying when it isn't called.
+  setAnsweredQuestions(0);
   // Placeholder for a function to update the number of answered questions
-  const incrementAnsweredQuestions = () => {
+  /*const incrementAnsweredQuestions = () => {
     setAnsweredQuestions(prev => prev + 1);
-  };
+  };*/
 
   
   //Boolean state for whether quiz is paused
