@@ -35,6 +35,15 @@ const DetailedQuestionsPage = () => {
     console.log('Detailed Career Assessment Answers:', answers);  
   };
 
+
+  //Boolean state for whether quiz is paused
+  const [paused, setPaused] = useState<boolean>(false);
+
+  //Updates paused state
+  function updatePaused(): void {
+    setPaused(!paused);
+  }
+
   return (
     <div className="DetailedPage">
       <header className="DetailedPage-header">
@@ -61,6 +70,7 @@ const DetailedQuestionsPage = () => {
                 value={option}
                 onChange={handleChange}
                 checked={answers.structuredJob === option}
+                disabled={paused}
               />
             ))}
           </Form.Group>
@@ -76,6 +86,7 @@ const DetailedQuestionsPage = () => {
                 value={option}
                 onChange={handleChange}
                 checked={answers.creativeJob === option}
+                disabled={paused}
               />
             ))}
           </Form.Group>
@@ -91,6 +102,7 @@ const DetailedQuestionsPage = () => {
                 value={option}
                 onChange={handleChange}
                 checked={answers.serviceJob === option}
+                disabled={paused}
               />
             ))}
           </Form.Group>
@@ -106,6 +118,7 @@ const DetailedQuestionsPage = () => {
                 value={option}
                 onChange={handleChange}
                 checked={answers.meetings === option}
+                disabled={paused}
               />
             ))}
           </Form.Group>
@@ -121,6 +134,7 @@ const DetailedQuestionsPage = () => {
                 value={option}
                 onChange={handleChange}
                 checked={answers.helpingCustomers === option}
+                disabled={paused}
               />
             ))}
           </Form.Group>
@@ -136,6 +150,7 @@ const DetailedQuestionsPage = () => {
                 value={option}
                 onChange={handleChange}
                 checked={answers.teamwork === option}
+                disabled={paused}
               />
             ))}
           </Form.Group>
@@ -151,6 +166,7 @@ const DetailedQuestionsPage = () => {
                 value={option}
                 onChange={handleChange}
                 checked={answers.leadership === option}
+                disabled={paused}
               />
             ))}
           </Form.Group>
@@ -163,7 +179,10 @@ const DetailedQuestionsPage = () => {
           </Alert>
         )}
 
-        <Button variant="secondary">Pause Button</Button>
+      <div>
+        <Button variant = "secondary" disabled={!(paused)} onClick={updatePaused}>Resume Button</Button>
+        <Button variant="secondary" disabled={paused} onClick={updatePaused}>Pause Button</Button>
+      </div>
         <Button
           variant="primary"
           className="get-answer-btn"
@@ -172,6 +191,7 @@ const DetailedQuestionsPage = () => {
           Get Answer
         </Button>
       </div>
+      
     </div>
   );
 };
