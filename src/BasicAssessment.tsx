@@ -12,6 +12,15 @@ export function BasicCareerAssessment(): React.JSX.Element {
   const incrementAnsweredQuestions = () => {
     setAnsweredQuestions(prev => prev + 1);
   };
+
+  
+  //Boolean state for whether quiz is paused
+  const [paused, setPaused] = useState<boolean>(false);
+
+  //Updates paused state
+  function updatePaused(): void {
+    setPaused(!paused);
+  }
   
   return (
     <div className="basicAssessment">
@@ -38,6 +47,7 @@ export function BasicCareerAssessment(): React.JSX.Element {
         key={answer}
         label={answer}
         value={answer}
+        disabled={paused}
         />)}
       </Form.Group>
       <Form.Group controlId="preferredWorkday">
@@ -49,14 +59,14 @@ export function BasicCareerAssessment(): React.JSX.Element {
         key={answer}
         label={answer}
         value={answer}
+        disabled={paused}
         />)}
       </Form.Group>
       <Form.Group controlId="stabilityImportance">
         <Form.Label>3. Job stability importance?</Form.Label>
-        <Form.Select value="question3">
-          {["","1","2","3","4","5","6","7","8","9","10"].map((answer: string)=>
-          <option value={answer}>{answer}</option>
-          )}
+        <Form.Select>
+          {["","1","2","3","4","5","6","7","8","9","10"].map((answer: string) =>
+          <option key={answer} value={answer}>{answer}</option>)}
         </Form.Select>
       </Form.Group>
       <Form.Group>
@@ -68,6 +78,7 @@ export function BasicCareerAssessment(): React.JSX.Element {
         key={answer}
         label={answer}
         value={answer}
+        disabled={paused}
         />)}
       </Form.Group>
       <Form.Group>
@@ -79,6 +90,7 @@ export function BasicCareerAssessment(): React.JSX.Element {
         key={answer}
         label={answer}
         value={answer}
+        disabled={paused}
         />)}
       </Form.Group>
       <Form.Group>
@@ -90,6 +102,7 @@ export function BasicCareerAssessment(): React.JSX.Element {
         key={answer}
         label={answer}
         value={answer}
+        disabled={paused}
         />)}
       </Form.Group>
       <Form.Group>
@@ -101,10 +114,14 @@ export function BasicCareerAssessment(): React.JSX.Element {
         key={answer}
         label={answer}
         value={answer}
+        disabled={paused}
         />)}
       </Form.Group>
-      {/* Not functional yet */}
-      <Button variant="secondary">Pause Button</Button>
+      <div>
+        <Button variant = "secondary" disabled={!(paused)} onClick={updatePaused}>Resume Button</Button>
+        <Button variant="secondary" disabled={paused} onClick={updatePaused}>Pause Button</Button>
+      </div>
+      
     </div>
   );
 }
