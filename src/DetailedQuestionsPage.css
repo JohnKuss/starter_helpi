@@ -1,87 +1,69 @@
-.App {
-    text-align: center;
-  }
+.DetailedPage {
+  text-align: center;
+  padding: 20px;
+  background-color: #e3f2fd; 
+}
 
-  .App-logo {
-    height: 40vmin;
-    pointer-events: none;
-  }
+.DetailedPage-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
 
-  @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-      animation: App-logo-spin infinite 20s linear;
-    }
-  }
+.question-box {
+  background-color: #ecf5fc; 
+  border: 2px solid #587e9f; 
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
 
-  .App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
+.question-box label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+}
 
-  .App-link {
-    color: #61dafb;
-  }
+.option-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 20px;
+}
 
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
+.get-answer-btn {
+  margin-top: 20px;
+  background-color: #afd6f7; 
+  color: #96b9ed; 
+  border-radius: 4px;
+  padding: 10px 20px;
+  border: none;
+}
 
-.placeholder {
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px dashed #ccc;
-    margin-bottom: 20px;
-  }
+.get-answer-btn:hover {
+  background-color: #9ac8ef; 
+  color: white;
+}
 
-  .get-answer-btn {
-    display: block;
-    margin: 20px auto;
-  }
+.question-box label {
+  font-weight: normal;
+  font-size: 1.2em; 
+  display: block;
+  margin-bottom: 10px;
+}
 
-  .App-footer {
-    background-color: #282c34;
-    color: white;
-    padding: 20px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    text-align: center;
-  }
+.option-group .form-check-label {
+  font-weight: normal;
+  font-size: 1em; 
+}
 
-  .App-footer a {
-    color: #61dafb;
-    margin: 0 10px;
-  }
-  
-  button[disabled] {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-  
-  .result-link {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #90caf9;
-    color: #0d47a1;
-    text-decoration: none;
-    border-radius: 4px;
-  }
-  
-  .result-link:hover {
-    background-color: #2196f3; 
-    color: white;
-  }
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.get-answer-btn {
+  margin-top: 10px;
+}
