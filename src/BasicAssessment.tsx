@@ -7,8 +7,7 @@ export function BasicCareerAssessment(): React.JSX.Element {
 
   // State to track the number of answered questions
   const [answeredQuestions, setAnsweredQuestions] = useState<number>(0);
-  //Arbitrarily calling setAnsweredQuestions as a temporary solution to issue with site not deploying when it isn't called.
-  setAnsweredQuestions(0);
+  
   // Placeholder for a function to update the number of answered questions
   /*const incrementAnsweredQuestions = () => {
     setAnsweredQuestions(prev => prev + 1);
@@ -49,6 +48,8 @@ export function BasicCareerAssessment(): React.JSX.Element {
         label={answer}
         value={answer}
         disabled={paused}
+        //onClick calls setAnsweredQuestons arbitrarily as placeholder.
+        onClick={() => setAnsweredQuestions(0)}
         />)}
       </Form.Group>
       <Form.Group controlId="preferredWorkday">
