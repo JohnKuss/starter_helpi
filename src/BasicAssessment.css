@@ -1,87 +1,109 @@
-.App {
-    text-align: center;
-  }
+.basicAssessment {
+  text-align: center;
+  padding: 40px;
+  background-color: #e3f2fd; 
+}
+.basicAssessment h1 {
+  color: #000000;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
 
-  .App-logo {
-    height: 40vmin;
-    pointer-events: none;
-  }
+.page-title {
+  color: #000000;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  text-align: center;
+}
 
-  @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-      animation: App-logo-spin infinite 20s linear;
-    }
-  }
 
-  .App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
+.basicAssessment-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.question-box {
+  background-color: #ffffff; 
+  border: 2px solid #587e9f; 
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.question-box label {
+  font-weight: normal;
+  font-size: 1.2em; 
+  display: block;
+  margin-bottom: 10px;
+}
+.option-group .form-check-label {
+  font-weight: normal;
+  font-size: 1.1em; 
+}
+.option-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 20px;
+}
+.progress-bar {
+  background-color: #587e9f !important;
+}
+.progress {
+  position: relative;
+  height: 20px;
+  background-color: #bbdefb;
+  border-radius: 5px;
+  margin: 20px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px; 
+  margin-left: auto;
+  margin-right: auto;
+}
+.progress-label {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1em;
+  color: #0d47a1;
+  font-weight: bold;
+  white-space: nowrap;
+}
 
-  .App-link {
-    color: #61dafb;
-  }
-
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-.placeholder {
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px dashed #ccc;
-    margin-bottom: 20px;
-  }
-
-  .get-answer-btn {
-    display: block;
-    margin: 20px auto;
-  }
-
-  .App-footer {
-    background-color: #282c34;
-    color: white;
-    padding: 20px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    text-align: center;
-  }
-
-  .App-footer a {
-    color: #61dafb;
-    margin: 0 10px;
-  }
-  
-  button[disabled] {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-
-  .result-link {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #90caf9;
-    color: #0d47a1;
-    text-decoration: none;
-    border-radius: 4px;
-  }
-  
-  .result-link:hover {
-    background-color: #2196f3; 
-    color: white;
-  }
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+.button-group button {
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #ffffff;
+  border-radius: 4px;
+  border: none;
+  transition: background-color 0.3s;
+}
+.button-group .btn-secondary {
+  background-color: #78909c; 
+}
+.button-group .btn-secondary:hover {
+  background-color: #546e7a; 
+}
+.result-link {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #2196f3; 
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+.result-link:hover {
+  background-color: #1976d2; 
+}

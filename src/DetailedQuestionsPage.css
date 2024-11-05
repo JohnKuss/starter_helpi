@@ -1,7 +1,14 @@
 .DetailedPage {
   text-align: center;
-  padding: 20px;
+  padding: 40px;
   background-color: #e3f2fd; 
+}
+
+.page-title {
+  color: #000000;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .DetailedPage-content {
@@ -10,16 +17,20 @@
 }
 
 .question-box {
-  background-color: #ecf5fc; 
+  background-color: #ffffff; 
   border: 2px solid #587e9f; 
   border-radius: 8px;
   padding: 20px;
   margin: 20px 0;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .question-box label {
-  font-weight: bold;
+  font-weight: normal;
+  font-size: 1.2em; 
   display: block;
   margin-bottom: 10px;
 }
@@ -66,4 +77,29 @@
 
 .get-answer-btn {
   margin-top: 10px;
+}
+
+.progress-bar {
+  background-color: #587e9f !important;
+}
+.progress {
+  position: relative;
+  height: 20px;
+  background-color: #bbdefb;
+  border-radius: 5px;
+  margin: 20px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px; 
+  margin-left: auto;
+  margin-right: auto;
+}
+.progress-label {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1em;
+  color: #0d47a1;
+  font-weight: bold;
+  white-space: nowrap;
 }
