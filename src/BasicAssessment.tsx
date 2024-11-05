@@ -4,29 +4,39 @@ import { Link } from 'react-router-dom';
 import "./BasicAssessment.css";
 
 export function BasicCareerAssessment(): React.JSX.Element {
-  // Define the total number of questions (7 in this case)
   const totalQuestions = 7;
-
-  // State to track the number of answered questions
   const [answeredQuestions, setAnsweredQuestions] = useState<number>(0);
-  
-  // Placeholder for a function to update the number of answered questions
-  /*const incrementAnsweredQuestions = () => {
-    setAnsweredQuestions(prev => prev + 1);
-  };*/
-
-  
-  //Boolean state for whether quiz is paused
   const [paused, setPaused] = useState<boolean>(false);
 
-  //Updates paused state
+  // State to track if each question is answered
+  const [answers, setAnswers] = useState({
+    idealEnvironment: '',
+    preferredWorkday: '',
+    stabilityImportance: '',
+    problemSolvingStyle: '',
+    biggestMotivator: '',
+    handlePressure: '',
+    travelPreference: ''
+  });
+
+  const handleAnswerChange = (name: string, value: string) => {
+    setAnswers(prevAnswers => ({
+      ...prevAnswers,
+      [name]: value
+    }));
+
+    if (!answers[name as keyof typeof answers]) {
+      setAnsweredQuestions(prev => prev + 1);
+    }
+  };
+
   function updatePaused(): void {
     setPaused(!paused);
   }
-  
+
   return (
     <div className="basicAssessment">
-      <h1>Basic Career Assessment</h1>
+      <h1 className="page-title">Basic Questions Assessment</h1>
       <div>
         Basic Career Assessment: Provides a series of more basic questions and generates results for potential careers.
       </div>
@@ -35,97 +45,149 @@ export function BasicCareerAssessment(): React.JSX.Element {
       {/* Progress Bar */}
       <ProgressBar
         now={(answeredQuestions / totalQuestions) * 100}
-        label={`${Math.round((answeredQuestions / totalQuestions) * 100)}%`}
+        label={`Progress: ${answeredQuestions} of ${totalQuestions}`}
+        className="progress"
       />
-      <p>Progress: {answeredQuestions}/{totalQuestions} questions answered</p>
 
-      {/* You can add questions later and call incrementAnsweredQuestions when a question is answered */}
-      <Form.Group controlId="idealEnvironment">
-        <Form.Label>1. Ideal work enviroment?</Form.Label>
-        {["Office","Remote","Hybrid","Outdoor","Other"].map((answer: string) => <Form.Check
-        inline
-        type="radio"
-        name="question1Answer"
-        key={answer}
-        label={answer}
-        value={answer}
-        disabled={paused}
-        //onClick calls setAnsweredQuestons arbitrarily as placeholder.
-        onClick={() => setAnsweredQuestions(0)}
-        />)}
-      </Form.Group>
-      <Form.Group controlId="preferredWorkday">
-        <Form.Label>2. Preferred workday?</Form.Label>
-        {["Solo Tasks","Team projects","Client interactions","Leading projects","Other"].map((answer:string) => <Form.Check
-        inline
-        type="radio"
-        name="question2Answer"
-        key={answer}
-        label={answer}
-        value={answer}
-        disabled={paused}
-        />)}
-      </Form.Group>
-      <Form.Group controlId="stabilityImportance">
-        <Form.Label>3. Job stability importance?</Form.Label>
-        <Form.Select>
-          {["","1","2","3","4","5","6","7","8","9","10"].map((answer: string) =>
-          <option key={answer} value={answer}>{answer}</option>)}
-        </Form.Select>
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>4. Problem-Solving Style?</Form.Label>
-        {["Detailed analysis","Team brainstorm","Intuition","Structured methods","Other"].map((answer:string) => <Form.Check
-        inline
-        type="radio"
-        name="question4Answer"
-        key={answer}
-        label={answer}
-        value={answer}
-        disabled={paused}
-        />)}
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>5. Biggest motivator?</Form.Label>
-        {["Work-life balance","Salary","Growth","Helping others","Creativity","Other"].map((answer:string) => <Form.Check
-        inline
-        type="radio"
-        name="question5Answer"
-        key={answer}
-        label={answer}
-        value={answer}
-        disabled={paused}
-        />)}
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>6. How do you handle pressure?</Form.Label>
-        {["I thrive","I stay calm","I avoid it","I feel overwhelmed"].map((answer:string) => <Form.Check
-        inline
-        type="radio"
-        name="question6Answer"
-        key={answer}
-        label={answer}
-        value={answer}
-        disabled={paused}
-        />)}
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>7. How do you feel about travel for work?</Form.Label>
-        {["Love it","Okay with it","Prefer to stay local"].map((answer:string) => <Form.Check
-        inline
-        type="radio"
-        name="question7Answer"
-        key={answer}
-        label={answer}
-        value={answer}
-        disabled={paused}
-        />)}
-      </Form.Group>
-      <div>
-        <Button variant = "secondary" disabled={!(paused)} onClick={updatePaused}>Resume Button</Button>
+      {/* Questions form */}
+      <Form>
+        <div className="question-box">
+          <Form.Label>1. Ideal work environment?</Form.Label>
+          <div className="option-group">
+            {["Office", "Remote", "Hybrid", "Outdoor", "Other"].map(answer => (
+              <Form.Check
+                inline
+                type="radio"
+                name="idealEnvironment"
+                key={answer}
+                label={answer}
+                value={answer}
+                disabled={paused}
+                onChange={() => handleAnswerChange("idealEnvironment", answer)}
+                checked={answers.idealEnvironment === answer}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className="question-box">
+          <Form.Label>2. Preferred workday?</Form.Label>
+          <div className="option-group">
+            {["Solo Tasks", "Team projects", "Client interactions", "Leading projects", "Other"].map(answer => (
+              <Form.Check
+                inline
+                type="radio"
+                name="preferredWorkday"
+                key={answer}
+                label={answer}
+                value={answer}
+                disabled={paused}
+                onChange={() => handleAnswerChange("preferredWorkday", answer)}
+                checked={answers.preferredWorkday === answer}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className="question-box">
+          <Form.Label>3. Job stability importance?</Form.Label>
+          <Form.Select
+            onChange={(e) => handleAnswerChange("stabilityImportance", e.target.value)}
+            disabled={paused}
+            value={answers.stabilityImportance}
+          >
+            <option value="">Select...</option>
+            {["1", "2", "3", "4", "5"].map(answer => (
+              <option key={answer} value={answer}>{answer}</option>
+            ))}
+          </Form.Select>
+        </div>
+
+        <div className="question-box">
+          <Form.Label>4. Problem-Solving Style?</Form.Label>
+          <div className="option-group">
+            {["Detailed analysis", "Team brainstorm", "Intuition", "Structured methods", "Other"].map(answer => (
+              <Form.Check
+                inline
+                type="radio"
+                name="problemSolvingStyle"
+                key={answer}
+                label={answer}
+                value={answer}
+                disabled={paused}
+                onChange={() => handleAnswerChange("problemSolvingStyle", answer)}
+                checked={answers.problemSolvingStyle === answer}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className="question-box">
+          <Form.Label>5. Biggest motivator?</Form.Label>
+          <div className="option-group">
+            {["Work-life balance", "Salary", "Growth", "Helping others", "Creativity", "Other"].map(answer => (
+              <Form.Check
+                inline
+                type="radio"
+                name="biggestMotivator"
+                key={answer}
+                label={answer}
+                value={answer}
+                disabled={paused}
+                onChange={() => handleAnswerChange("biggestMotivator", answer)}
+                checked={answers.biggestMotivator === answer}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className="question-box">
+          <Form.Label>6. How do you handle pressure?</Form.Label>
+          <div className="option-group">
+            {["I thrive", "I stay calm", "I avoid it", "I feel overwhelmed"].map(answer => (
+              <Form.Check
+                inline
+                type="radio"
+                name="handlePressure"
+                key={answer}
+                label={answer}
+                value={answer}
+                disabled={paused}
+                onChange={() => handleAnswerChange("handlePressure", answer)}
+                checked={answers.handlePressure === answer}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className="question-box">
+          <Form.Label>7. How do you feel about travel for work?</Form.Label>
+          <div className="option-group">
+            {["Love it", "Okay with it", "Prefer to stay local"].map(answer => (
+              <Form.Check
+                inline
+                type="radio"
+                name="travelPreference"
+                key={answer}
+                label={answer}
+                value={answer}
+                disabled={paused}
+                onChange={() => handleAnswerChange("travelPreference", answer)}
+                checked={answers.travelPreference === answer}
+              />
+            ))}
+          </div>
+        </div>
+      </Form>
+
+      <div className="button-group">
+        <Button variant="secondary" disabled={!paused} onClick={updatePaused}>Resume Button</Button>
         <Button variant="secondary" disabled={paused} onClick={updatePaused}>Pause Button</Button>
       </div>
+
       <Link to="/results" className="result-link">Get Answer</Link>
     </div>
   );
 }
+
+export default BasicCareerAssessment;
