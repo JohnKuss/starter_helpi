@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Form, Alert } from 'react-bootstrap';
 import './DetailedQuestionsPage.css';
+import { Link } from 'react-router-dom';
 
 const DetailedQuestionsPage = () => {
   const [answers, setAnswers] = useState({
@@ -30,10 +31,10 @@ const DetailedQuestionsPage = () => {
     };
     checkCompletion();
   }, [answers]);
-
+  /*
   const handleSubmit = () => {
     console.log('Detailed Career Assessment Answers:', answers);  
-  };
+  };*/
 
 
   //Boolean state for whether quiz is paused
@@ -192,7 +193,6 @@ const DetailedQuestionsPage = () => {
             All questions have been completed! Click 'Get Answer' to submit your responses.
           </Alert>
         )}
-
 <div className="button-group">
   <Button variant="secondary" disabled={!paused} onClick={updatePaused}>
     Resume Button
@@ -211,7 +211,6 @@ const DetailedQuestionsPage = () => {
 </Button>
 
       </div>
-      
     </div>
   );
 };
