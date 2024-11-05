@@ -31,10 +31,10 @@ const DetailedQuestionsPage = () => {
     };
     checkCompletion();
   }, [answers]);
-
+  /*
   const handleSubmit = () => {
     console.log('Detailed Career Assessment Answers:', answers);  
-  };
+  };*/
 
 
   //Boolean state for whether quiz is paused
