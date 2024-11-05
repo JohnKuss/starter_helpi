@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Button, Form, ProgressBar } from "react-bootstrap";
+import { Link } from 'react-router-dom';
+import "./BasicAssessment.css";
 
 export function BasicCareerAssessment(): React.JSX.Element {
   // Define the total number of questions (7 in this case)
@@ -123,7 +125,7 @@ export function BasicCareerAssessment(): React.JSX.Element {
         <Button variant = "secondary" disabled={!(paused)} onClick={updatePaused}>Resume Button</Button>
         <Button variant="secondary" disabled={paused} onClick={updatePaused}>Pause Button</Button>
       </div>
-      
+      <Link to="/results" className="result-link">Get Answer</Link>
     </div>
   );
 }

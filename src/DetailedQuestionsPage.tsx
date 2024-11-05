@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Form, Alert } from 'react-bootstrap';
 import './DetailedQuestionsPage.css';
+import { Link } from 'react-router-dom';
 
 const DetailedQuestionsPage = () => {
   const [answers, setAnswers] = useState({
@@ -183,15 +184,15 @@ const DetailedQuestionsPage = () => {
         <Button variant = "secondary" disabled={!(paused)} onClick={updatePaused}>Resume Button</Button>
         <Button variant="secondary" disabled={paused} onClick={updatePaused}>Pause Button</Button>
       </div>
-        <Button
+        {/*<Button
           variant="primary"
           className="get-answer-btn"
           onClick={handleSubmit}
         >
           Get Answer
-        </Button>
-      </div>
-      
+        </Button>*/}
+      </div>*.
+      <Link to="/results" className="result-link">Get Answer</Link>
     </div>
   );
 };
