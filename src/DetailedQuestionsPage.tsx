@@ -60,7 +60,7 @@ const DetailedQuestionsPage = () => {
         {/* Questions form */}
         <Form>
   <div className="question-box">
-    <Form.Label>I prefer a structured job environment.</Form.Label>
+    <Form.Label>1. I prefer a structured job environment.</Form.Label>
     <div className="option-group">
       {['Very Not Like Me', 'Not Like Me', 'Somewhat Like Me', 'Like Me', 'Very Like Me'].map(option => (
         <Form.Check
@@ -78,7 +78,7 @@ const DetailedQuestionsPage = () => {
   </div>
 
   <div className="question-box">
-    <Form.Label>I would like a creative job.</Form.Label>
+    <Form.Label>2. I would like a creative job.</Form.Label>
     <div className="option-group">
       {['Very Not Like Me', 'Not Like Me', 'Somewhat Like Me', 'Like Me', 'Very Like Me'].map(option => (
         <Form.Check
@@ -96,7 +96,7 @@ const DetailedQuestionsPage = () => {
   </div>
 
   <div className="question-box">
-    <Form.Label>I would like a service job.</Form.Label>
+    <Form.Label>3. I would like a service job.</Form.Label>
     <div className="option-group">
       {['Very Not Like Me', 'Not Like Me', 'Somewhat Like Me', 'Like Me', 'Very Like Me'].map(option => (
         <Form.Check
@@ -114,7 +114,7 @@ const DetailedQuestionsPage = () => {
   </div>
 
   <div className="question-box">
-    <Form.Label>I like jobs with a lot of meetings.</Form.Label>
+    <Form.Label>4. I like jobs with a lot of meetings.</Form.Label>
     <div className="option-group">
       {['Very Not Like Me', 'Not Like Me', 'Somewhat Like Me', 'Like Me', 'Very Like Me'].map(option => (
         <Form.Check
@@ -132,7 +132,7 @@ const DetailedQuestionsPage = () => {
   </div>
 
   <div className="question-box">
-    <Form.Label>I like helping customers.</Form.Label>
+    <Form.Label>5. I like helping customers.</Form.Label>
     <div className="option-group">
       {['Very Not Like Me', 'Not Like Me', 'Somewhat Like Me', 'Like Me', 'Very Like Me'].map(option => (
         <Form.Check
@@ -150,7 +150,7 @@ const DetailedQuestionsPage = () => {
   </div>
 
   <div className="question-box">
-    <Form.Label>I work well in teams.</Form.Label>
+    <Form.Label>6. I work well in teams.</Form.Label>
     <div className="option-group">
       {['Very Not Like Me', 'Not Like Me', 'Somewhat Like Me', 'Like Me', 'Very Like Me'].map(option => (
         <Form.Check
@@ -168,7 +168,7 @@ const DetailedQuestionsPage = () => {
   </div>
 
   <div className="question-box">
-    <Form.Label>I am cut out for a leadership position.</Form.Label>
+    <Form.Label>7. I am cut out for a leadership position.</Form.Label>
     <div className="option-group">
       {['Very Not Like Me', 'Not Like Me', 'Somewhat Like Me', 'Like Me', 'Very Like Me'].map(option => (
         <Form.Check
@@ -202,13 +202,7 @@ const DetailedQuestionsPage = () => {
   </Button>
 </div>
 
-<Button
-  variant="primary"
-  className="get-answer-btn"
-  onClick={handleSubmit}
->
-  Get Answer
-</Button>
+<Link to="/results" className="result-link">Get Answer</Link>
 
       </div>
     </div>
