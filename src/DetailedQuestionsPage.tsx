@@ -204,9 +204,17 @@ const DetailedQuestionsPage = () => {
             Pause Button
           </Button>
         </div>
+        {/* "Get Answer" Link button */}
+                <Link
+          to="/results"
+          className="result-link"
+          style={{ pointerEvents: allQuestionsCompleted ? 'auto' : 'none', opacity: allQuestionsCompleted ? 1 : 0.5 }}
+        >
+          Get Answer
+        </Link>
 
         {}
-        <Link to="/results" className="result-link">Get Answer</Link>
+        {/*<Link to="/results" className="result-link">Get Answer</Link>*/}
       </div>
     </div>
   );
