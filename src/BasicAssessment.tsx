@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Button, Form, ProgressBar } from "react-bootstrap";
+import { Alert, Button, Form, ProgressBar } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 import "./BasicAssessment.css";
 
 export function BasicCareerAssessment(): React.JSX.Element {
   const totalQuestions = 7;
   const [answeredQuestions, setAnsweredQuestions] = useState<number>(0);
+  const [allQuestionsCompleted, setAllQuestionsCompleted] = useState(false);
   const [paused, setPaused] = useState<boolean>(false);
 
   // State to track if each question is answered
@@ -27,6 +28,9 @@ export function BasicCareerAssessment(): React.JSX.Element {
 
     if (!answers[name as keyof typeof answers]) {
       setAnsweredQuestions(prev => prev + 1);
+    }
+    if (answeredQuestions + 1 === totalQuestions) {
+      setAllQuestionsCompleted(true);
     }
   };
 
@@ -179,6 +183,15 @@ export function BasicCareerAssessment(): React.JSX.Element {
           </div>
         </div>
       </Form>
+
+      {/* Feedback message for completion */}
+      <div className="basicAssessment-content">
+      {allQuestionsCompleted && (
+        <Alert variant="success" className="mt-3">
+          All questions have been completed! Click 'Get Answer' to submit your responses.
+        </Alert>
+      )}
+      </div>
 
       <div className="button-group">
         <Button variant="secondary" disabled={!paused} onClick={updatePaused}>Resume Button</Button>
