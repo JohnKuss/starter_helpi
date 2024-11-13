@@ -10,9 +10,6 @@ import HomePage from './HomePage';
 import {Results} from "./Results";
 import OpenAI from 'openai';
 
-const openai = new OpenAI()
-
-
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
 const saveKeyData = "MYKEY";
@@ -20,6 +17,16 @@ const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: 
 if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
 }
+
+const openai = new OpenAI({
+  apiKey: keyData,
+  dangerouslyAllowBrowser: true
+})
+
+const basicReport = await openai.chat.completions.create({
+  messages: [{role: "system", content: "Say this will be a basic report"}],
+  model: "gpt-4o"
+}) 
 
 function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
@@ -89,6 +96,9 @@ function App() {
                 Submit
             </Button>
         </Form>
+    </div>
+    <div>
+      {String(basicReport.choices[0].message)}
     </div>
 </footer>
     </div>
