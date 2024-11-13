@@ -4,6 +4,9 @@ import { Button, Form, Alert, ProgressBar } from 'react-bootstrap';
 import './DetailedQuestionsPage.css';
 import { useNavigate } from 'react-router-dom';
 import { fetchCareerAdvice } from './API';
+interface LocationState {
+  response: string;
+}
 
 const DetailedQuestionsPage = () => {
   const totalQuestions = 7; 
@@ -65,11 +68,11 @@ const DetailedQuestionsPage = () => {
 
     const answerValues = Object.values(answers);
     try {
-        const response = await fetchCareerAdvice(apiKey, questions, answerValues);
-        navigate("/results", { state: { response } });
-    } catch (error) {
-        console.error("Failed to fetch career advice:", error);
-    }
+      const response = await fetchCareerAdvice(apiKey, questions, answerValues);
+      navigate("/results", { state: { response } as LocationState });
+  } catch (error) {
+      console.error("Failed to fetch career advice:", error);
+  }
 };
 
   return (

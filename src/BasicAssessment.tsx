@@ -4,6 +4,9 @@ import { Alert, Button, Form, ProgressBar } from "react-bootstrap";
 import "./BasicAssessment.css";
 import { useNavigate } from 'react-router-dom';
 import { fetchCareerAdvice } from './API';
+interface LocationState {
+  response: string;
+}
 
 export function BasicCareerAssessment(): React.JSX.Element {
   const totalQuestions = 7;
@@ -64,11 +67,11 @@ export function BasicCareerAssessment(): React.JSX.Element {
 
     const answerValues = Object.values(answers);
     try {
-        const response = await fetchCareerAdvice(apiKey, questions, answerValues);
-        navigate("/results", { state: { response } });
-    } catch (error) {
-        console.error("Failed to fetch career advice:", error);
-    }
+      const response = await fetchCareerAdvice(apiKey, questions, answerValues);
+      navigate("/results", { state: { response } as LocationState });
+  } catch (error) {
+      console.error("Failed to fetch career advice:", error);
+  }
 };
 
 
