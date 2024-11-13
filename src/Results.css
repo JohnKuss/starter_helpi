@@ -1,0 +1,37 @@
+/* Results.css */
+
+/* Overall container styling */
+.results-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #e3f2fd; /* Light background color for contrast */
+    min-height: 100vh;
+}
+
+/* Title styling */
+.results-title {
+    font-size: 2.5rem;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Box styling for the result text */
+.results-box {
+    background-color: #ffffff; /* White background */
+    border: 2px solid #587e9f;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 800px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+
+
+
