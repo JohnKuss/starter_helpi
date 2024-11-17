@@ -1,16 +1,31 @@
 import React, { useState } from 'react';
 import { Button, Form, Alert, ProgressBar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import './DetailedQuestionsPage.css';
+import { useNavigate } from 'react-router-dom';
+import { fetchCareerAdvice } from './API';
+interface LocationState {
+  response: string;
+}
 
 const DetailedQuestionsPage = () => {
   const totalQuestions = 7; 
   const [answeredQuestions, setAnsweredQuestions] = useState(0);
   const [allQuestionsCompleted, setAllQuestionsCompleted] = useState(false);
   const [paused, setPaused] = useState<boolean>(false);
+  const navigate = useNavigate();
+  type Answers = {
+    structuredJob: string;
+    creativeJob: string;
+    serviceJob: string;
+    meetings: string;
+    helpingCustomers: string;
+    teamwork: string;
+    leadership: string;
+};
 
   
-  const [answers, setAnswers] = useState({
+  const [answers, setAnswers] = useState<Answers>({
     structuredJob: '',
     creativeJob: '',
     serviceJob: '',
@@ -39,6 +54,26 @@ const DetailedQuestionsPage = () => {
   function updatePaused(): void {
     setPaused(!paused);
   }
+  const submitAnswers = async () => {
+    const apiKey = JSON.parse(localStorage.getItem("MYKEY") || '""') as string; // Get the API key from localStorage
+    const questions = [
+        "Do you prefer structured tasks?",
+        "Do you enjoy creative tasks?",
+        "Do you like helping customers?",
+        "Do you participate actively in meetings?",
+        "Do you find satisfaction in helping customers?",
+        "Do you prefer working in teams?",
+        "Do you enjoy taking charge of projects?",
+    ];
+
+    const answerValues = Object.values(answers);
+    try {
+      const response = await fetchCareerAdvice(apiKey, questions, answerValues);
+      navigate("/results", { state: { response } as LocationState });
+  } catch (error) {
+      console.error("Failed to fetch career advice:", error);
+  }
+};
 
   return (
     <div className="DetailedPage">
@@ -203,15 +238,16 @@ const DetailedQuestionsPage = () => {
           <Button variant="secondary" disabled={paused} onClick={updatePaused}>
             Pause Button
           </Button>
+          <Button onClick={submitAnswers} disabled={!allQuestionsCompleted}>Get Answer</Button>
         </div>
         {/* "Get Answer" Link button */}
-                <Link
+         {/*}       <Link
           to="/results"
           className="result-link"
           style={{ pointerEvents: allQuestionsCompleted ? 'auto' : 'none', opacity: allQuestionsCompleted ? 1 : 0.5 }}
         >
           Get Answer
-        </Link>
+        </Link>*/}
 
         {}
         {/*<Link to="/results" className="result-link">Get Answer</Link>*/}
