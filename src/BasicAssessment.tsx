@@ -1,24 +1,39 @@
 import React, { useState } from "react";
 import { Alert, Button, Form, ProgressBar } from "react-bootstrap";
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import "./BasicAssessment.css";
+import { useNavigate } from 'react-router-dom';
+import { fetchCareerAdvice } from './API';
+interface LocationState {
+  response: string;
+}
 
 export function BasicCareerAssessment(): React.JSX.Element {
   const totalQuestions = 7;
   const [answeredQuestions, setAnsweredQuestions] = useState<number>(0);
   const [allQuestionsCompleted, setAllQuestionsCompleted] = useState(false);
   const [paused, setPaused] = useState<boolean>(false);
+  const navigate = useNavigate();
+  type Answers = {
+    idealEnvironment: string;
+    preferredWorkday: string;
+    stabilityImportance: string;
+    problemSolvingStyle: string;
+    biggestMotivator: string;
+    handlePressure: string;
+    travelPreference: string;
+};
 
   // State to track if each question is answered
-  const [answers, setAnswers] = useState({
+  const [answers, setAnswers] = useState<Answers>({
     idealEnvironment: '',
     preferredWorkday: '',
     stabilityImportance: '',
     problemSolvingStyle: '',
     biggestMotivator: '',
     handlePressure: '',
-    travelPreference: ''
-  });
+    travelPreference: '',
+});
 
   const handleAnswerChange = (name: string, value: string) => {
     setAnswers(prevAnswers => ({
@@ -37,6 +52,29 @@ export function BasicCareerAssessment(): React.JSX.Element {
   function updatePaused(): void {
     setPaused(!paused);
   }
+
+  const submitAnswers = async () => {
+    const apiKey = JSON.parse(localStorage.getItem("MYKEY") || '""') as string; // Get the API key from localStorage
+    const questions = [
+        "Ideal work environment?",
+        "Preferred workday?",
+        "Job stability importance?",
+        "Problem-Solving Style?",
+        "Biggest motivator?",
+        "How do you handle pressure?",
+        "How do you feel about travel for work?",
+    ];
+
+    const answerValues = Object.values(answers);
+    try {
+      const response = await fetchCareerAdvice(apiKey, questions, answerValues);
+      navigate("/results", { state: { response } as LocationState });
+  } catch (error) {
+      console.error("Failed to fetch career advice:", error);
+  }
+};
+
+
 
   return (
     <div className="basicAssessment">
@@ -196,15 +234,16 @@ export function BasicCareerAssessment(): React.JSX.Element {
       <div className="button-group">
         <Button variant="secondary" disabled={!paused} onClick={updatePaused}>Resume Button</Button>
         <Button variant="secondary" disabled={paused} onClick={updatePaused}>Pause Button</Button>
+        <Button onClick={submitAnswers} disabled={!allQuestionsCompleted}>Get Answer</Button>
       </div>
       {/* "Get Answer" Link button */}
-      <Link
+      {/*<Link
           to="/results"
           className="result-link"
           style={{ pointerEvents: allQuestionsCompleted ? 'auto' : 'none', opacity: allQuestionsCompleted ? 1 : 0.5 }}
         >
           Get Answer
-      </Link>
+      </Link>*/}
 
       {/*<Link to="/results" className="result-link">Get Answer</Link>*/}
     </div>
