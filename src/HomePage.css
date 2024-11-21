@@ -1,49 +1,63 @@
-.home-page {
-    text-align: center;
-    padding: 40px;
-  }
-  body {
-    background-color: #e3f2fd; 
-  }
-  
-  .home-header {
-    margin-bottom: 20px;
-  }
-  
-  .quiz-options {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .options-container {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .option {
-    background-color: #ecf5fc;
-    border: 2px solid #2196f3; 
-    border-radius: 8px;
-    padding: 20px;
-    width: 40%; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .option-link {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #90caf9;
-    color: #0d47a1;
-    text-decoration: none;
-    border-radius: 4px;
-  }
-  
-  .option-link:hover {
-    background-color: #2196f3; 
-    color: white;
-  }
+body {
+  background: linear-gradient(90deg, #0f2027, #203a43, #2c5364); /* Futuristic gradient */
+  font-family: 'Orbitron', sans-serif; /* Robotic font */
+  color: #f2f2f2; /* Light text color */
+}
+
+.home-header {
+  margin-top: 30px; /* Pushes the main header down */
+  margin-bottom: 20px;
+  color: #0affff;
+  text-shadow: 0 0 10px #0affff;
+  text-align: center; /* Ensure it stays centered */
+}
+
+.quiz-options h2 {
+  margin-top: 20px; /* Pushes the subheader down slightly */
+  color: #0affff;
+  text-align: center; /* Ensure it stays centered */
+}
+
+.options-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.option {
+  background-color: #1a1a1a;
+  border: 2px solid #0affff;
+  border-radius: 10px;
+  padding: 20px;
+  width: 40%;
+  box-shadow: 0 0 15px rgba(10, 255, 255, 0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.option:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 30px rgba(10, 255, 255, 0.8);
+}
+
+.option-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #0affff;
+  color: #1a1a1a;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.option-link:hover {
+  background-color: #1a1a1a;
+  color: #0affff;
+  border: 2px solid #0affff;
+}
+
+
+
+
