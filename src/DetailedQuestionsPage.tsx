@@ -77,9 +77,7 @@ const DetailedQuestionsPage = () => {
 
   return (
     <div className="DetailedPage">
-      <header className="DetailedPage-header">
       <h1 className="page-title">Detailed Questions Assessment</h1>
-      </header>
       <div className="DetailedPage-content">
         <div>
           Detailed Career Assessment: Provides a series of more detailed questions to help generate results for your desired career.
