@@ -236,7 +236,7 @@ const DetailedQuestionsPage = () => {
           <Button variant="secondary" disabled={paused} onClick={updatePaused}>
             Pause Button
           </Button>
-          <Button onClick={submitAnswers} disabled={!allQuestionsCompleted}>Get Answer</Button>
+          <Button variant="secondary" onClick={submitAnswers} disabled={!allQuestionsCompleted}>Get Answer</Button>
         </div>
         {/* "Get Answer" Link button */}
          {/*}       <Link
