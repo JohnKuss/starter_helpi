@@ -1,9 +1,12 @@
 .DetailedPage {
   text-align: center;
   padding: 40px;
-  background: linear-gradient(90deg, #0f2027, #203a43, #2c5364); /* Futuristic gradient */
-  font-family: 'Orbitron', sans-serif;
-  color: #f2f2f2;
+  background: linear-gradient(rgba(15, 32, 39, 0.8), rgba(32, 58, 67, 0.8)), url('C:/Users/layan/starter_helpi/src/picture/ai.jpg');
+  background-size: cover; /* Make the image cover the entire page */
+  background-position: center; /* Center the image */
+  background-attachment: fixed; /* Ensure the image stays fixed when scrolling */
+  font-family: 'Orbitron', sans-serif; /* Robotic font */
+  color: #f2f2f2; /* Light text color */
 }
 
 .page-title {
