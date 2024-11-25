@@ -5,12 +5,12 @@
   font-family: 'Orbitron', sans-serif;
   color: #f2f2f2;
 }
+
 .page-title {
-  color: #0affff; /* Neon blue for the title */
-  font-size: 5em; /* Match Basic Assessment size */
+  color: #0affff; /* Neon blue for the subheader */
+  font-size: 1.8em;
   margin-bottom: 20px;
   text-shadow: 0 0 10px #0affff; /* Glowing effect */
-  text-align: center;
 }
 
 .DetailedPage-content {

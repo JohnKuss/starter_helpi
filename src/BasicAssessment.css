@@ -15,7 +15,7 @@
 
 .page-title {
   color: #0affff; /* Neon blue for the subheader */
-  font-size: 1.8em;
+  font-size: 2.5em;
   margin-bottom: 20px;
   text-shadow: 0 0 10px #0affff; /* Glowing effect */
 }
@@ -59,6 +59,7 @@
 
 .progress-bar {
   background-color: #0affff !important; /* Neon blue progress */
+  color: black;
 }
 
 .progress {

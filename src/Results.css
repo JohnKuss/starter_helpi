@@ -6,7 +6,7 @@
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    background-color: #e3f2fd; /* Light background color for contrast */
+    background-color: linear-gradient(90deg, #0f2027, #203a43, #2c5364); /* Light background color for contrast */
     min-height: 100vh;
 }
 
@@ -15,19 +15,20 @@
     font-size: 2.5rem;
     margin-top: 20px;
     font-weight: bold;
-    color: #333;
+    color:#0affff; 
+    text-shadow: 0 0 10px #0affff; /* Glowing effect */
 }
 
 /* Box styling for the result text */
 .results-box {
-    background-color: #ffffff; /* White background */
-    border: 2px solid #587e9f;
+    background-color: #1a1a1a;; /* White background */
+    border: 2px solid #0affff;
     border-radius: 8px;
     padding: 20px;
     max-width: 800px;
     margin-top: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: #333;
+    box-shadow: 0 0 15px rgba(10, 255, 255, 0.5); /* Glowing effect */
+    color: #f2f2f2;;
     font-size: 1rem;
     line-height: 1.5;
 }
