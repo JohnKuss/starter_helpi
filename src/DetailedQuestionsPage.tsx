@@ -77,14 +77,14 @@ const DetailedQuestionsPage = () => {
 
   return (
     <div className="DetailedPage">
-      <h1 className="page-title">Detailed Questions Assessment</h1>
+      <h1 className="page-title">Detailed Career Assessment</h1>
       <div className="DetailedPage-content">
-        <div>
-          Detailed Career Assessment: Provides a series of more detailed questions to help generate results for your desired career.
-        </div>
-        <div>
-          <p>Estimated time: 10-15 minutes</p>
-        </div>
+      <div className="description-card">
+        <p className="description">
+          The Detailed Career Assessment provides an in-depth exploration of potential career paths tailored to your interests and values. By answering a series of comprehensive questions, you will receive personalized insights and recommendations to align with your aspirations and goals.
+        </p>
+        <p className="time-estimate">Estimated Completion Time: 3–5 minutes</p>
+      </div>
 
         {/* Progress Bar */}
         <ProgressBar
