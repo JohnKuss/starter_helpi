@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (56 ms)
+  ✕ renders learn react link (54 ms)
 
   ● renders learn react link
 
@@ -61,14 +61,14 @@ FAIL src/App.test.tsx
               [33mclass[39m=[32m"home-header"[39m
             [36m>[39m
               [36m<h1>[39m
-                [0mThe Career Helpi[0m
+                [0mCareerBot Assistant[0m
               [36m</h1>[39m
             [36m</header>[39m
             [36m<section[39m
               [33mclass[39m=[32m"quiz-options"[39m
             [36m>[39m
               [36m<h2>[39m
-                [0mQuiz Options[0m
+                [0mChoose Your Assessment[0m
               [36m</h2>[39m
               [36m<div[39m
                 [33mclass[39m=[32m"options-container"[39m
@@ -77,10 +77,10 @@ FAIL src/App.test.tsx
                   [33mclass[39m=[32m"option"[39m
                 [36m>[39m
                   [36m<h3>[39m
-                    [0mBasic Assessment[0m
+                    [0m Basic Career Assessment[0m
                   [36m</h3>[39m
                   [36m<p>[39m
-                    [0mThis assessment consists of 7 straightforward questions designed to quickly gauge your career preferences and suggest potential career paths. It’s a great starting point to understand your professional inclinations.[0m
+                    [0mThis quick assessment uses 7 straightforward questions to analyze your career preferences and suggest potential paths. Perfect for a fast start![0m
                   [36m</p>[39m
                   [36m<a[39m
                     [33mclass[39m=[32m"option-link"[39m
@@ -93,10 +93,10 @@ FAIL src/App.test.tsx
                   [33mclass[39m=[32m"option"[39m
                 [36m>[39m
                   [36m<h3>[39m
-                    [0mDetailed Assessment[0m
+                    [0m Detailed Career Assessment[0m
                   [36m</h3>[39m
                   [36m<p>[39m
-                    [0mThis assessment features 7 in-depth questions that delve deeper into your career interests and values. It aims to provide a more tailored analysis of suitable career options based on your responses.[0m
+                    [0mDiscover tailored career options with our in-depth assessment. Answer 7 detailed questions that delve into your interests and values.[0m
                   [36m</p>[39m
                   [36m<a[39m
                     [33mclass[39m=[32m"option-link"[39m
@@ -119,7 +119,7 @@ FAIL src/App.test.tsx
                 [36m<label[39m
                   [33mclass[39m=[32m"form-label"[39m
                 [36m>[39m
-                  [0mAPI Key:[0m
+                  [0mEnter API Key:[0m
                 [36m</label>[39m
                 [36m<input[39m
                   [33mclass[39m=[32m"api-key-input form-control"[39m
@@ -159,27 +159,6 @@ FAIL src/App.test.tsx
       at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
-----------------------------|---------|----------|---------|---------|-------------------
-File                        | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
-----------------------------|---------|----------|---------|---------|-------------------
-All files                   |    7.63 |     3.57 |    3.92 |    7.93 |                   
- src                        |    8.92 |     3.84 |    4.08 |    9.34 |                   
-  API.tsx                   |       0 |        0 |       0 |       0 | 9-31              
-  App.tsx                   |      60 |       50 |   33.33 |      60 | 17,25-31          
-  BasicAssessment.tsx       |       0 |        0 |       0 |       0 | 12-217            
-  DetailedQuestionsPage.tsx |    2.56 |        0 |       0 |     2.7 | 12-218            
-  HomePage.tsx              |     100 |      100 |     100 |     100 |                   
-  Results.tsx               |      20 |        0 |       0 |      20 | 19-23             
-  index.tsx                 |       0 |      100 |     100 |       0 | 7-19              
-  reportWebVitals.ts        |       0 |        0 |       0 |       0 | 3-10              
- src/server                 |       0 |        0 |       0 |       0 |                   
-  server.js                 |       0 |        0 |       0 |       0 | 1-34              
-----------------------------|---------|----------|---------|---------|-------------------
-Test Suites: 1 failed, 1 total
-Tests:       1 failed, 1 total
-Snapshots:   0 total
-Time:        3.215 s
-Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
 declaring it in its dependencies. This is currently working because
@@ -192,3 +171,24 @@ ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
 your devDependencies to work around this error. This will make this message
 go away.[0m
   
+----------------------------|---------|----------|---------|---------|-------------------
+File                        | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+----------------------------|---------|----------|---------|---------|-------------------
+All files                   |    7.63 |     3.57 |    3.92 |    7.93 |                   
+ src                        |    8.92 |     3.84 |    4.08 |    9.34 |                   
+  API.tsx                   |       0 |        0 |       0 |       0 | 9-31              
+  App.tsx                   |      60 |       50 |   33.33 |      60 | 17,25-31          
+  BasicAssessment.tsx       |       0 |        0 |       0 |       0 | 12-219            
+  DetailedQuestionsPage.tsx |    2.56 |        0 |       0 |     2.7 | 12-216            
+  HomePage.tsx              |     100 |      100 |     100 |     100 |                   
+  Results.tsx               |      20 |        0 |       0 |      20 | 19-23             
+  index.tsx                 |       0 |      100 |     100 |       0 | 7-19              
+  reportWebVitals.ts        |       0 |        0 |       0 |       0 | 3-10              
+ src/server                 |       0 |        0 |       0 |       0 |                   
+  server.js                 |       0 |        0 |       0 |       0 | 1-34              
+----------------------------|---------|----------|---------|---------|-------------------
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
+Snapshots:   0 total
+Time:        3.412 s
+Ran all test suites.
