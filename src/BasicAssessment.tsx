@@ -78,11 +78,13 @@ export function BasicCareerAssessment(): React.JSX.Element {
 
   return (
     <div className="basicAssessment">
-      <h1 className="page-title">Basic Questions Assessment</h1>
-      <div>
-        Basic Career Assessment: Provides a series of more basic questions and generates results for potential careers.
+      <h1 className="page-title">Basic Career Assessment</h1>
+      <div className="description-card">
+        <p className="description">
+          The Basic Career Assessment helps you explore potential career paths through a series of focused, easy-to-answer questions. This quick assessment provides insights into your preferences and strengths, offering tailored recommendations to guide your career decisions.
+        </p>
+        <p className="time-estimate">Estimated Completion Time: 2–3 minutes</p>
       </div>
-      <p>Estimated time: 5-10 minutes</p>
 
       {/* Progress Bar */}
       <ProgressBar
@@ -234,7 +236,7 @@ export function BasicCareerAssessment(): React.JSX.Element {
       <div className="button-group">
         <Button variant="secondary" disabled={!paused} onClick={updatePaused}>Resume Button</Button>
         <Button variant="secondary" disabled={paused} onClick={updatePaused}>Pause Button</Button>
-        <Button onClick={submitAnswers} disabled={!allQuestionsCompleted}>Get Answer</Button>
+        <Button variant="secondary" onClick={submitAnswers} disabled={!allQuestionsCompleted}>Get Answer</Button>
       </div>
       {/* "Get Answer" Link button */}
       {/*<Link
