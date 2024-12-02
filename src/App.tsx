@@ -72,9 +72,9 @@ function App() {
         </Routes>
       </HashRouter>
       <footer>
-    <div className="api-key-container"> {/* Added a wrapper for centering */}
+        <div className="api-key-container"> {/* Added a wrapper for centering */}
         <Form>
-            <Form.Label>API Key:</Form.Label>
+            <Form.Label>Enter API Key:</Form.Label>
             <Form.Control 
                 type="password" 
                 placeholder="Insert API Key Here" 
