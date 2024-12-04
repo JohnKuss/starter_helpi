@@ -12,7 +12,6 @@ const DetailedQuestionsPage = () => {
   const totalQuestions = 7; 
   const [answeredQuestions, setAnsweredQuestions] = useState(0);
   const [allQuestionsCompleted, setAllQuestionsCompleted] = useState(false);
-  const [paused, setPaused] = useState<boolean>(false);
   const navigate = useNavigate();
   type Answers = {
     structuredJob: string;
@@ -51,9 +50,7 @@ const DetailedQuestionsPage = () => {
     }
   };
 
-  function updatePaused(): void {
-    setPaused(!paused);
-  }
+  
   const submitAnswers = async () => {
     const apiKey = JSON.parse(localStorage.getItem("MYKEY") || '""') as string; // Get the API key from localStorage
     const questions = [
@@ -107,7 +104,6 @@ const DetailedQuestionsPage = () => {
                   value={option}
                   onChange={() => handleAnswerChange("structuredJob", option)}
                   checked={answers.structuredJob === option}
-                  disabled={paused}
                 />
               ))}
             </div>
@@ -125,7 +121,6 @@ const DetailedQuestionsPage = () => {
                   value={option}
                   onChange={() => handleAnswerChange("creativeJob", option)}
                   checked={answers.creativeJob === option}
-                  disabled={paused}
                 />
               ))}
             </div>
@@ -143,7 +138,6 @@ const DetailedQuestionsPage = () => {
                   value={option}
                   onChange={() => handleAnswerChange("serviceJob", option)}
                   checked={answers.serviceJob === option}
-                  disabled={paused}
                 />
               ))}
             </div>
@@ -161,7 +155,6 @@ const DetailedQuestionsPage = () => {
                   value={option}
                   onChange={() => handleAnswerChange("meetings", option)}
                   checked={answers.meetings === option}
-                  disabled={paused}
                 />
               ))}
             </div>
@@ -179,7 +172,6 @@ const DetailedQuestionsPage = () => {
                   value={option}
                   onChange={() => handleAnswerChange("helpingCustomers", option)}
                   checked={answers.helpingCustomers === option}
-                  disabled={paused}
                 />
               ))}
             </div>
@@ -197,7 +189,6 @@ const DetailedQuestionsPage = () => {
                   value={option}
                   onChange={() => handleAnswerChange("teamwork", option)}
                   checked={answers.teamwork === option}
-                  disabled={paused}
                 />
               ))}
             </div>
@@ -215,7 +206,6 @@ const DetailedQuestionsPage = () => {
                   value={option}
                   onChange={() => handleAnswerChange("leadership", option)}
                   checked={answers.leadership === option}
-                  disabled={paused}
                 />
               ))}
             </div>
@@ -230,12 +220,6 @@ const DetailedQuestionsPage = () => {
         )}
 
         <div className="button-group">
-          <Button variant="secondary" disabled={!paused} onClick={updatePaused}>
-            Resume Button
-          </Button>
-          <Button variant="secondary" disabled={paused} onClick={updatePaused}>
-            Pause Button
-          </Button>
           <Button variant="secondary" onClick={submitAnswers} disabled={!allQuestionsCompleted}>Get Answer</Button>
         </div>
         {/* "Get Answer" Link button */}
