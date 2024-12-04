@@ -12,7 +12,7 @@ export function BasicCareerAssessment(): React.JSX.Element {
   const totalQuestions = 7;
   const [answeredQuestions, setAnsweredQuestions] = useState<number>(0);
   const [allQuestionsCompleted, setAllQuestionsCompleted] = useState(false);
-  const [paused, setPaused] = useState<boolean>(false);
+
   const navigate = useNavigate();
   type Answers = {
     idealEnvironment: string;
@@ -49,9 +49,7 @@ export function BasicCareerAssessment(): React.JSX.Element {
     }
   };
 
-  function updatePaused(): void {
-    setPaused(!paused);
-  }
+
 
   const submitAnswers = async () => {
     const apiKey = JSON.parse(localStorage.getItem("MYKEY") || '""') as string; // Get the API key from localStorage
@@ -106,7 +104,6 @@ export function BasicCareerAssessment(): React.JSX.Element {
                 key={answer}
                 label={answer}
                 value={answer}
-                disabled={paused}
                 onChange={() => handleAnswerChange("idealEnvironment", answer)}
                 checked={answers.idealEnvironment === answer}
               />
@@ -125,7 +122,6 @@ export function BasicCareerAssessment(): React.JSX.Element {
                 key={answer}
                 label={answer}
                 value={answer}
-                disabled={paused}
                 onChange={() => handleAnswerChange("preferredWorkday", answer)}
                 checked={answers.preferredWorkday === answer}
               />
@@ -137,7 +133,6 @@ export function BasicCareerAssessment(): React.JSX.Element {
           <Form.Label>3. Job stability importance?</Form.Label>
           <Form.Select
             onChange={(e) => handleAnswerChange("stabilityImportance", e.target.value)}
-            disabled={paused}
             value={answers.stabilityImportance}
           >
             <option value="">Select...</option>
@@ -158,7 +153,6 @@ export function BasicCareerAssessment(): React.JSX.Element {
                 key={answer}
                 label={answer}
                 value={answer}
-                disabled={paused}
                 onChange={() => handleAnswerChange("problemSolvingStyle", answer)}
                 checked={answers.problemSolvingStyle === answer}
               />
@@ -177,7 +171,6 @@ export function BasicCareerAssessment(): React.JSX.Element {
                 key={answer}
                 label={answer}
                 value={answer}
-                disabled={paused}
                 onChange={() => handleAnswerChange("biggestMotivator", answer)}
                 checked={answers.biggestMotivator === answer}
               />
@@ -196,7 +189,6 @@ export function BasicCareerAssessment(): React.JSX.Element {
                 key={answer}
                 label={answer}
                 value={answer}
-                disabled={paused}
                 onChange={() => handleAnswerChange("handlePressure", answer)}
                 checked={answers.handlePressure === answer}
               />
@@ -215,7 +207,7 @@ export function BasicCareerAssessment(): React.JSX.Element {
                 key={answer}
                 label={answer}
                 value={answer}
-                disabled={paused}
+                
                 onChange={() => handleAnswerChange("travelPreference", answer)}
                 checked={answers.travelPreference === answer}
               />
@@ -233,9 +225,7 @@ export function BasicCareerAssessment(): React.JSX.Element {
       )}
       </div>
 
-      <div className="button-group">
-        <Button variant="secondary" disabled={!paused} onClick={updatePaused}>Resume Button</Button>
-        <Button variant="secondary" disabled={paused} onClick={updatePaused}>Pause Button</Button>
+      <div className="button-group"> 
         <Button variant="secondary" onClick={submitAnswers} disabled={!allQuestionsCompleted}>Get Answer</Button>
       </div>
       {/* "Get Answer" Link button */}
