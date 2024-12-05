@@ -50,9 +50,9 @@ export async function fetchCareerAdvice(
         let content = data.choices[0].message.content;
 
         // Post-process to ensure double newlines between paragraphs
-        //content = content.replace(/(\n){2,}/g, '\n\n'); // Replace multiple newlines with a double newline
+        content = content.replace(/(\n){2,}/g, '\n\n'); // Replace multiple newlines with a double newline
         
-        return content; // Return the formatted response
+        return content.trim(); // Return the formatted response
     } else {
         throw new Error("Unexpected response structure.");
     }
