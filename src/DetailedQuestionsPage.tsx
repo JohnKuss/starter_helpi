@@ -12,6 +12,7 @@ const DetailedQuestionsPage = () => {
   const totalQuestions = 7; 
   const [answeredQuestions, setAnsweredQuestions] = useState(0);
   const [allQuestionsCompleted, setAllQuestionsCompleted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   type Answers = {
     structuredJob: string;
@@ -64,18 +65,28 @@ const DetailedQuestionsPage = () => {
     ];
 
     const answerValues = Object.values(answers);
+    setLoading(true);
     try {
       const response = await fetchCareerAdvice(apiKey, questions, answerValues);
       navigate("/results", { state: { response } as LocationState });
   } catch (error) {
       console.error("Failed to fetch career advice:", error);
-  }
+    } finally {
+      setLoading(false);  // Set loading to false after the request is complete
+    }
 };
 
   return (
     <div className="DetailedPage">
       <h1 className="page-title">Detailed Career Assessment</h1>
       <div className="DetailedPage-content">
+              {/* Loading Screen */}
+      {loading && (
+        <div className="loading-screen">
+          <h3>Loading, please wait...</h3>
+          <div className="spinner"></div>
+        </div>
+      )}
       <div className="description-card">
         <p className="description">
           The Detailed Career Assessment provides an in-depth exploration of potential career paths tailored to your interests and values. By answering a series of comprehensive questions, you will receive personalized insights and recommendations to align with your aspirations and goals.

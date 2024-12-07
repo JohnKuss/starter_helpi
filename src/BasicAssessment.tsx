@@ -12,6 +12,7 @@ export function BasicCareerAssessment(): React.JSX.Element {
   const totalQuestions = 7;
   const [answeredQuestions, setAnsweredQuestions] = useState<number>(0);
   const [allQuestionsCompleted, setAllQuestionsCompleted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
   type Answers = {
@@ -64,12 +65,15 @@ export function BasicCareerAssessment(): React.JSX.Element {
     ];
 
     const answerValues = Object.values(answers);
+    setLoading(true); 
     try {
       const response = await fetchCareerAdvice(apiKey, questions, answerValues);
       navigate("/results", { state: { response } as LocationState });
   } catch (error) {
       console.error("Failed to fetch career advice:", error);
-  }
+    } finally {
+      setLoading(false);  // Set loading to false after the request is complete
+    }
 };
 
 
@@ -77,6 +81,13 @@ export function BasicCareerAssessment(): React.JSX.Element {
   return (
     <div className="basicAssessment">
       <h1 className="page-title">Basic Career Assessment</h1>
+      {/* Loading Screen */}
+      {loading && (
+        <div className="loading-screen">
+          <h3>Loading, please wait...</h3>
+          <div className="spinner"></div>
+        </div>
+      )}
       <div className="description-card">
         <p className="description">
           The Basic Career Assessment helps you explore potential career paths through a series of focused, easy-to-answer questions. This quick assessment provides insights into your preferences and strengths, offering tailored recommendations to guide your career decisions.
@@ -225,8 +236,10 @@ export function BasicCareerAssessment(): React.JSX.Element {
       )}
       </div>
 
-      <div className="button-group"> 
-        <Button variant="secondary" onClick={submitAnswers} disabled={!allQuestionsCompleted}>Get Answer</Button>
+      <div className="button-group">
+        <Button variant="secondary" onClick={submitAnswers} disabled={!allQuestionsCompleted}>
+          Get Answer
+        </Button>
       </div>
       {/* "Get Answer" Link button */}
       {/*<Link
