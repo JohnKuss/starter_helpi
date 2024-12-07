@@ -8,6 +8,10 @@ import {Routes, Route, HashRouter, Link } from "react-router-dom";
 import {BasicCareerAssessment} from "./BasicAssessment";
 import HomePage from './HomePage';
 import {Results} from "./Results";
+import OpenAI from 'openai';
+
+const openai = new OpenAI()
+
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
