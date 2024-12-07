@@ -9,8 +9,7 @@ import {BasicCareerAssessment} from "./BasicAssessment";
 import HomePage from './HomePage';
 import {Results} from "./Results";
 import OpenAI from 'openai';
-
-const openai = new OpenAI()
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)

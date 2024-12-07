@@ -194,4 +194,30 @@
   100% { transform: rotate(360deg); }
 }
 
+.spinner-icon {
+  font-size: 3em; /* Large size for visibility */
+  color: #0affff; /* Neon blue color */
+  margin-bottom: 20px; /* Space between icon and text */
+  animation: spin 1.5s linear infinite; /* Spinning animation */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.completion-message {
+  max-width: 850px; /* Match the progress bar's max-width */
+  margin: 10px auto; /* Center the message */
+  text-align: center; /* Center align the text */
+  padding: 10px 20px; /* Add some padding */
+  font-size: 1.1em; /* Slightly smaller text */
+}
+
+
+
 

@@ -1,249 +1,227 @@
-import React, { useState } from 'react';
-import { Button, Form, Alert, ProgressBar } from 'react-bootstrap';
-//import { Link } from 'react-router-dom';
-import './DetailedQuestionsPage.css';
-import { useNavigate } from 'react-router-dom';
-import { fetchCareerAdvice } from './API';
-interface LocationState {
-  response: string;
-}
+import React, { useState } from "react";
+import { Button, Form, Alert, ProgressBar } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import { fetchCareerAdvice } from "./API";
+import "./DetailedQuestionsPage.css";
 
 const DetailedQuestionsPage = () => {
-  const totalQuestions = 7; 
-  const [answeredQuestions, setAnsweredQuestions] = useState(0);
-  const [allQuestionsCompleted, setAllQuestionsCompleted] = useState(false);
+  const totalQuestions = 7;
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
+  const [answers, setAnswers] = useState({
+    structuredJob: "",
+    creativeJob: "",
+    serviceJob: "",
+    meetings: "",
+    helpingCustomers: "",
+    teamwork: "",
+    leadership: "",
+  });
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  type Answers = {
-    structuredJob: string;
-    creativeJob: string;
-    serviceJob: string;
-    meetings: string;
-    helpingCustomers: string;
-    teamwork: string;
-    leadership: string;
-};
 
-  
-  const [answers, setAnswers] = useState<Answers>({
-    structuredJob: '',
-    creativeJob: '',
-    serviceJob: '',
-    meetings: '',
-    helpingCustomers: '',
-    teamwork: '',
-    leadership: '',
-  });
+  const questions = [
+    {
+      question: "Do you prefer structured tasks?",
+      name: "structuredJob",
+      options: [
+        "Very Not Like Me",
+        "Not Like Me",
+        "Somewhat Like Me",
+        "Like Me",
+        "Very Like Me",
+      ],
+    },
+    {
+      question: "Do you enjoy creative tasks?",
+      name: "creativeJob",
+      options: [
+        "Very Not Like Me",
+        "Not Like Me",
+        "Somewhat Like Me",
+        "Like Me",
+        "Very Like Me",
+      ],
+    },
+    {
+      question: "Do you like helping customers?",
+      name: "serviceJob",
+      options: [
+        "Very Not Like Me",
+        "Not Like Me",
+        "Somewhat Like Me",
+        "Like Me",
+        "Very Like Me",
+      ],
+    },
+    {
+      question: "Do you participate actively in meetings?",
+      name: "meetings",
+      options: [
+        "Very Not Like Me",
+        "Not Like Me",
+        "Somewhat Like Me",
+        "Like Me",
+        "Very Like Me",
+      ],
+    },
+    {
+      question: "Do you find satisfaction in helping customers?",
+      name: "helpingCustomers",
+      options: [
+        "Very Not Like Me",
+        "Not Like Me",
+        "Somewhat Like Me",
+        "Like Me",
+        "Very Like Me",
+      ],
+    },
+    {
+      question: "Do you prefer working in teams?",
+      name: "teamwork",
+      options: [
+        "Very Not Like Me",
+        "Not Like Me",
+        "Somewhat Like Me",
+        "Like Me",
+        "Very Like Me",
+      ],
+    },
+    {
+      question: "Do you enjoy taking charge of projects?",
+      name: "leadership",
+      options: [
+        "Very Not Like Me",
+        "Not Like Me",
+        "Somewhat Like Me",
+        "Like Me",
+        "Very Like Me",
+      ],
+    },
+  ];
 
   const handleAnswerChange = (name: string, value: string) => {
-    
-    setAnswers(prevState => ({
-      ...prevState,
+    setAnswers((prev) => ({
+      ...prev,
       [name]: value,
     }));
+  };
 
-    if (!answers[name as keyof typeof answers]) {
-      setAnsweredQuestions(prev => prev + 1);
-    }
-
-    if (answeredQuestions + 1 === totalQuestions) {
-      setAllQuestionsCompleted(true);
+  const handleNext = () => {
+    if (currentQuestionIndex < totalQuestions - 1) {
+      setCurrentQuestionIndex((prev) => prev + 1);
     }
   };
 
-  
-  const submitAnswers = async () => {
-    const apiKey = JSON.parse(localStorage.getItem("MYKEY") || '""') as string; // Get the API key from localStorage
-    const questions = [
-        "Do you prefer structured tasks?",
-        "Do you enjoy creative tasks?",
-        "Do you like helping customers?",
-        "Do you participate actively in meetings?",
-        "Do you find satisfaction in helping customers?",
-        "Do you prefer working in teams?",
-        "Do you enjoy taking charge of projects?",
-    ];
+  const handlePrevious = () => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex((prev) => prev - 1);
+    }
+  };
 
+  const submitAnswers = async () => {
+    const apiKey = JSON.parse(localStorage.getItem("MYKEY") || '""') as string;
     const answerValues = Object.values(answers);
     setLoading(true);
     try {
-      const response = await fetchCareerAdvice(apiKey, questions, answerValues);
-      navigate("/results", { state: { response } as LocationState });
-  } catch (error) {
+      const response = await fetchCareerAdvice(
+        apiKey,
+        questions.map((q) => q.question),
+        answerValues
+      );
+      navigate("/results", { state: { response } });
+    } catch (error) {
       console.error("Failed to fetch career advice:", error);
     } finally {
-      setLoading(false);  // Set loading to false after the request is complete
+      setLoading(false);
     }
-};
+  };
+
+  const allQuestionsCompleted = Object.values(answers).every((answer) => answer !== "");
+  const currentQuestion = questions[currentQuestionIndex];
 
   return (
     <div className="DetailedPage">
-      <h1 className="page-title">Detailed Career Assessment</h1>
-      <div className="DetailedPage-content">
-              {/* Loading Screen */}
+      <h1 className="page-title">
+        <i className="bi bi-robot"></i> Detailed Career Assessment
+      </h1>
       {loading && (
         <div className="loading-screen">
-          <h3>Loading, please wait...</h3>
-          <div className="spinner"></div>
+          <i className="bi bi-robot spinner-icon"></i> {}
+          <h3>Hang tight! MechaMatcher is finding your career match...</h3>
         </div>
       )}
       <div className="description-card">
         <p className="description">
-          The Detailed Career Assessment provides an in-depth exploration of potential career paths tailored to your interests and values. By answering a series of comprehensive questions, you will receive personalized insights and recommendations to align with your aspirations and goals.
+          The Detailed Career Assessment provides an in-depth exploration of
+          potential career paths tailored to your interests and values. By
+          answering a series of comprehensive questions, you will receive
+          personalized insights and recommendations to align with your
+          aspirations and goals.
         </p>
         <p className="time-estimate">Estimated Completion Time: 3–5 minutes</p>
       </div>
-
-        {/* Progress Bar */}
-        <ProgressBar
-          now={(answeredQuestions / totalQuestions) * 100}
-          label={`Progress: ${answeredQuestions} of ${totalQuestions}`}
-          className="progress"
-        />
-
-        {/* Questions form */}
-        <Form>
-          <div className="question-box">
-            <Form.Label>1. I prefer a structured job environment.</Form.Label>
-            <div className="option-group">
-              {['Very Not Like Me', 'Not Like Me', 'Somewhat Like Me', 'Like Me', 'Very Like Me'].map(option => (
-                <Form.Check
-                  key={option}
-                  type="radio"
-                  label={option}
-                  name="structuredJob"
-                  value={option}
-                  onChange={() => handleAnswerChange("structuredJob", option)}
-                  checked={answers.structuredJob === option}
-                />
-              ))}
-            </div>
+      <ProgressBar
+        now={((currentQuestionIndex + 1) / totalQuestions) * 100}
+        label={`Progress: ${currentQuestionIndex + 1} of ${totalQuestions}`}
+        className="progress"
+      />
+      <Form>
+        <div className="question-box">
+          <Form.Label>{currentQuestion.question}</Form.Label>
+          <div className="option-group">
+            {currentQuestion.options.map((option) => (
+              <Form.Check
+                key={option}
+                type="radio"
+                label={option}
+                name={currentQuestion.name}
+                value={option}
+                onChange={() =>
+                  handleAnswerChange(currentQuestion.name, option)
+                }
+                checked={
+                  answers[currentQuestion.name as keyof typeof answers] ===
+                  option
+                }
+              />
+            ))}
           </div>
-
-          <div className="question-box">
-            <Form.Label>2. I would like a creative job.</Form.Label>
-            <div className="option-group">
-              {['Very Not Like Me', 'Not Like Me', 'Somewhat Like Me', 'Like Me', 'Very Like Me'].map(option => (
-                <Form.Check
-                  key={option}
-                  type="radio"
-                  label={option}
-                  name="creativeJob"
-                  value={option}
-                  onChange={() => handleAnswerChange("creativeJob", option)}
-                  checked={answers.creativeJob === option}
-                />
-              ))}
-            </div>
-          </div>
-
-          <div className="question-box">
-            <Form.Label>3. I would like a service job.</Form.Label>
-            <div className="option-group">
-              {['Very Not Like Me', 'Not Like Me', 'Somewhat Like Me', 'Like Me', 'Very Like Me'].map(option => (
-                <Form.Check
-                  key={option}
-                  type="radio"
-                  label={option}
-                  name="serviceJob"
-                  value={option}
-                  onChange={() => handleAnswerChange("serviceJob", option)}
-                  checked={answers.serviceJob === option}
-                />
-              ))}
-            </div>
-          </div>
-
-          <div className="question-box">
-            <Form.Label>4. I like jobs with a lot of meetings.</Form.Label>
-            <div className="option-group">
-              {['Very Not Like Me', 'Not Like Me', 'Somewhat Like Me', 'Like Me', 'Very Like Me'].map(option => (
-                <Form.Check
-                  key={option}
-                  type="radio"
-                  label={option}
-                  name="meetings"
-                  value={option}
-                  onChange={() => handleAnswerChange("meetings", option)}
-                  checked={answers.meetings === option}
-                />
-              ))}
-            </div>
-          </div>
-
-          <div className="question-box">
-            <Form.Label>5. I like helping customers.</Form.Label>
-            <div className="option-group">
-              {['Very Not Like Me', 'Not Like Me', 'Somewhat Like Me', 'Like Me', 'Very Like Me'].map(option => (
-                <Form.Check
-                  key={option}
-                  type="radio"
-                  label={option}
-                  name="helpingCustomers"
-                  value={option}
-                  onChange={() => handleAnswerChange("helpingCustomers", option)}
-                  checked={answers.helpingCustomers === option}
-                />
-              ))}
-            </div>
-          </div>
-
-          <div className="question-box">
-            <Form.Label>6. I work well in teams.</Form.Label>
-            <div className="option-group">
-              {['Very Not Like Me', 'Not Like Me', 'Somewhat Like Me', 'Like Me', 'Very Like Me'].map(option => (
-                <Form.Check
-                  key={option}
-                  type="radio"
-                  label={option}
-                  name="teamwork"
-                  value={option}
-                  onChange={() => handleAnswerChange("teamwork", option)}
-                  checked={answers.teamwork === option}
-                />
-              ))}
-            </div>
-          </div>
-
-          <div className="question-box">
-            <Form.Label>7. I am cut out for a leadership position.</Form.Label>
-            <div className="option-group">
-              {['Very Not Like Me', 'Not Like Me', 'Somewhat Like Me', 'Like Me', 'Very Like Me'].map(option => (
-                <Form.Check
-                  key={option}
-                  type="radio"
-                  label={option}
-                  name="leadership"
-                  value={option}
-                  onChange={() => handleAnswerChange("leadership", option)}
-                  checked={answers.leadership === option}
-                />
-              ))}
-            </div>
-          </div>
-        </Form>
-
-        {/* Feedback message for completion */}
-        {allQuestionsCompleted && (
-          <Alert variant="success" className="mt-3">
-            All questions have been completed! Click 'Get Answer' to submit your responses.
-          </Alert>
-        )}
-
-        <div className="button-group">
-          <Button variant="secondary" onClick={submitAnswers} disabled={!allQuestionsCompleted}>Get Answer</Button>
         </div>
-        {/* "Get Answer" Link button */}
-         {/*}       <Link
-          to="/results"
-          className="result-link"
-          style={{ pointerEvents: allQuestionsCompleted ? 'auto' : 'none', opacity: allQuestionsCompleted ? 1 : 0.5 }}
+      </Form>
+      {allQuestionsCompleted && currentQuestionIndex === totalQuestions - 1 && (
+  <div className="completion-message">
+    <Alert variant="success" className="mt-3">
+      All questions have been completed! Click 'Submit' to view your results.
+    </Alert>
+  </div>
+)}
+      <div className="button-group">
+        <Button
+          variant="secondary"
+          onClick={handlePrevious}
+          disabled={currentQuestionIndex === 0}
         >
-          Get Answer
-        </Link>*/}
-
-        {}
-        {/*<Link to="/results" className="result-link">Get Answer</Link>*/}
+          Previous
+        </Button>
+        {currentQuestionIndex < totalQuestions - 1 ? (
+          <Button
+            variant="primary"
+            onClick={handleNext}
+            disabled={
+              !answers[currentQuestion.name as keyof typeof answers]
+            }
+          >
+            Next
+          </Button>
+        ) : (
+          <Button
+            variant="success"
+            onClick={submitAnswers}
+            disabled={!allQuestionsCompleted}
+          >
+            Submit
+          </Button>
+        )}
       </div>
     </div>
   );
