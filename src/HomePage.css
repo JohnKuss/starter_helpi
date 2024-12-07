@@ -62,5 +62,76 @@ body {
 }
 
 
+/* Main Title Icon */
+.main-title-icon {
+  font-size: 1.2em; /* Slightly smaller icon size */
+  margin-right: 10px; /* Space between the icon and text */
+  color: #0affff; /* Match text color */
+  vertical-align: middle; /* Align with the text */
+  position: relative; /* Needed for the tooltip */
+  cursor: pointer;
+}
+
+.main-title-icon:hover::after {
+  content: "Hey there! I'm MechaMatcher, your friendly robotic sidekick here to help you discover the perfect career match. Ready to dive in? Pick an assessment and let’s get started!";
+  position: absolute;
+  top: 80%; /* Adjust position */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 12px; /* Slightly increased padding for better spacing */
+  border-radius: 5px; /* Smooth corners */
+  font-size: 0.8em; /* Maintain compact font size */
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  white-space: normal; /* Allow text wrapping */
+  text-align: center; /* Center-align the text */
+  width: 900px; /* Increased width for a wider look */
+  line-height: 1.2; /* Better spacing between lines for readability */
+}
+
+/* Robot icon styling */
+.robot-icon {
+  font-size: 40px;
+  color: #0affff;
+  cursor: pointer;
+  position: relative;
+  margin: 10px;
+  transition: transform 0.3s;
+}
+
+.robot-icon:hover {
+  transform: scale(1.2);
+}
+
+/* Tooltip styling */
+.robot-tooltip-container {
+  position: relative;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.robot-tooltip {
+  visibility: hidden;
+  position: absolute;
+  bottom: 50px; /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  white-space: nowrap;
+  font-size: 14px;
+  z-index: 100;
+  transition: visibility 0.3s ease-in-out;
+}
+
+.robot-icon:hover + .robot-tooltip {
+  visibility: visible;
+}
+
+
 
 

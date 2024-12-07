@@ -171,3 +171,11 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+.completion-message {
+  max-width: 850px; /* Match the progress bar's max-width */
+  margin: 10px auto; /* Center the message */
+  text-align: center; /* Center align the text */
+  padding: 10px 20px; /* Add some padding */
+  font-size: 1.1em; /* Slightly smaller text */
+}
