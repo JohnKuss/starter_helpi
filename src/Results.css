@@ -1,43 +1,108 @@
 /* Results.css */
 
-/* Overall container styling */
+/* Container Styling */
 .results-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
     background: linear-gradient(rgba(15, 32, 39, 0.8), rgba(32, 58, 67, 0.8)), url('picture/ai.jpg');
-    background-size: cover; /* Make the image cover the entire page */
-    background-position: center; /* Center the image */
-    background-attachment: fixed; /* Ensure the image stays fixed when scrolling */
-    font-family: 'Orbitron', sans-serif; /* Robotic font */
-    color: #f2f2f2; /* Light text color */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Orbitron', sans-serif;
+    color: #f2f2f2;
     min-height: 100vh;
 }
 
-/* Title styling */
+/* Title Styling */
 .results-title {
     font-size: 2.5rem;
     margin-top: 20px;
     font-weight: bold;
-    color:#0affff; 
-    text-shadow: 0 0 10px #0affff; /* Glowing effect */
+    color: #0affff;
+    text-shadow: 0 0 10px #0affff;
+    text-align: center;
 }
 
-/* Box styling for the result text */
-.results-box {
-    background-color: #1a1a1a;; /* White background */
-    border: 2px solid #0affff;
-    border-radius: 8px;
-    padding: 20px;
-    max-width: 800px;
+/* Grid Layout for Cards */
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
     margin-top: 20px;
-    box-shadow: 0 0 15px rgba(10, 255, 255, 0.5); /* Glowing effect */
-    color: #f2f2f2;;
-    font-size: 1rem;
-    line-height: 1.5;
+}
+
+.results-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Spread content evenly */
+    text-align: center;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    border: 2px solid #0affff;
+    box-shadow: 0 0 15px rgba(10, 255, 255, 0.5);
+    padding: 20px;
+    height: 100%; /* Ensures consistent height for all cards */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 
+/* Card Hover Effect */
+.results-card:hover {
+    transform: scale(1.05); /* Slight scaling effect on hover */
+    box-shadow: 0 0 20px rgba(10, 255, 255, 0.7); /* Enhanced glow on hover */
+}
 
 
+/* Card Title */
+.card-title {
+    font-size: 1.5rem;
+    color: #0affff; /* Neon color */
+    margin-bottom: 10px;
+    text-align: center; /* Center the title */
+}
+
+
+/* Card Description */
+.card-description {
+    font-size: 1rem;
+    color: #d3d3d3; /* Different subtle color */
+    margin-bottom: 10px;
+}
+
+.card-explanation {
+    font-size: 1rem;
+    color: #d3d3d3; /* Same color as description */
+    margin-bottom: 10px;
+}
+
+
+/* Card Skills */
+.card-skills {
+    font-size: 0.9rem;
+    color: #a8b2d1;
+    margin-bottom: 15px;
+}
+
+/* Action Button */
+.card-button {
+    align-self: center; /* Center button horizontally */
+    margin-top: auto; /* Push button to bottom */
+    padding: 10px 15px;
+    background-color: #0affff;
+    color: #1a1a1a;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card-button:hover {
+    background-color: #00e6e6;
+}
