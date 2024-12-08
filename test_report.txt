@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (50 ms)
+  ✕ renders learn react link (55 ms)
 
   ● renders learn react link
 
@@ -150,28 +150,6 @@ FAIL src/App.test.tsx
       at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
-----------------------------|---------|----------|---------|---------|-------------------
-File                        | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
-----------------------------|---------|----------|---------|---------|-------------------
-All files                   |    9.52 |    12.32 |    6.81 |   10.07 |                   
- src                        |   10.93 |    12.67 |    7.14 |   11.66 |                   
-  API.tsx                   |       0 |        0 |       0 |       0 | 11-63             
-  AboutUs.tsx               |      50 |      100 |       0 |      50 | 5                 
-  App.tsx                   |      60 |    43.75 |   33.33 |      60 | 17,27-33,50-59    
-  BasicAssessment.tsx       |       0 |        0 |       0 |       0 | 8-182             
-  DetailedQuestionsPage.tsx |    2.94 |        0 |       0 |    3.33 | 8-180             
-  HomePage.tsx              |      50 |       25 |   33.33 |      50 | 24-37             
-  Results.tsx               |    7.14 |        0 |       0 |    7.14 | 10-40             
-  index.tsx                 |       0 |      100 |     100 |       0 | 7-19              
-  reportWebVitals.ts        |       0 |        0 |       0 |       0 | 3-10              
- src/server                 |       0 |        0 |       0 |       0 |                   
-  server.js                 |       0 |        0 |       0 |       0 | 1-34              
-----------------------------|---------|----------|---------|---------|-------------------
-Test Suites: 1 failed, 1 total
-Tests:       1 failed, 1 total
-Snapshots:   0 total
-Time:        3.31 s
-Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
 declaring it in its dependencies. This is currently working because
@@ -184,3 +162,25 @@ ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
 your devDependencies to work around this error. This will make this message
 go away.[0m
   
+----------------------------|---------|----------|---------|---------|-------------------
+File                        | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+----------------------------|---------|----------|---------|---------|-------------------
+All files                   |    9.15 |       12 |    6.38 |    9.72 |                   
+ src                        |   10.44 |    12.32 |    6.66 |    11.2 |                   
+  API.tsx                   |       0 |        0 |       0 |       0 | 11-63             
+  AboutUs.tsx               |      50 |      100 |       0 |      50 | 5                 
+  App.tsx                   |      60 |    43.75 |   33.33 |      60 | 17,27-33,50-59    
+  BasicAssessment.tsx       |       0 |        0 |       0 |       0 | 8-182             
+  DetailedQuestionsPage.tsx |    2.94 |        0 |       0 |    3.33 | 8-180             
+  HomePage.tsx              |      50 |       25 |   33.33 |      50 | 24-37             
+  Results.tsx               |       5 |        0 |       0 |    5.26 | 10-57             
+  index.tsx                 |       0 |      100 |     100 |       0 | 7-19              
+  reportWebVitals.ts        |       0 |        0 |       0 |       0 | 3-10              
+ src/server                 |       0 |        0 |       0 |       0 |                   
+  server.js                 |       0 |        0 |       0 |       0 | 1-34              
+----------------------------|---------|----------|---------|---------|-------------------
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
+Snapshots:   0 total
+Time:        3.828 s
+Ran all test suites.
