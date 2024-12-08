@@ -82,35 +82,29 @@
 }
 
 .api-key-container {
-  margin-top: 50px;
-  text-align: center;
+  margin-top: 100px;
   display: flex;
-  flex-direction: column; /* Stack the label and input vertically */
-  align-items: center; /* Center align everything */
+  align-items: center; 
+  justify-content: center; 
+  gap: 10px; 
 }
 
 .api-key-input {
   background-color: #1a1a1a;
   border: 2px solid #0affff;
-  color: white; /* Ensure the text remains visible */
+  color: white;
   padding: 10px;
   border-radius: 5px;
   font-size: 16px;
   width: 350px;
-  text-align: left;
-  margin-bottom: -15px;
 }
 
-/* Add focus state with red glow */
 .api-key-input:focus {
-  outline: none; /* Remove the default focus outline */
-  border-color: #ff0000; /* Change border color to red when focused */
-  box-shadow: 0 0 8px #ff0000; /* Add a red glowing effect */
-  background-color: #222; /* Ensure background remains dark */
-  color: white; /* Ensure text remains visible */
+  outline: none;
+  border-color: #ff0000;
+  box-shadow: 0 0 8px #ff0000;
+  background-color: #222;
 }
-
-
 
 .submit-button {
   background-color: #0affff;
@@ -121,7 +115,15 @@
   cursor: pointer;
   font-weight: bold;
   text-transform: uppercase;
+  transition: background-color 0.3s, color 0.3s;
 }
+
+.submit-button:disabled {
+  background-color: #555; 
+  color: #aaa; 
+  cursor: not-allowed; 
+}
+
 
 .submit-button:hover {
   background-color: #1a1a1a;
