@@ -8,6 +8,7 @@
   font-family: 'Orbitron', sans-serif; /* Robotic font */
   color: #f2f2f2; /* Light text color */
 }
+
 .description-card {
   background: rgba(255, 255, 255, 0.1); /* Transparent background */
   backdrop-filter: blur(10px); /* Glass effect */
@@ -45,12 +46,12 @@
 }
 
 .question-box {
-  background-color: #ffffff; 
-  border: 2px solid #587e9f; 
+  background-color: #ffffff;
+  border: 2px solid #587e9f;
   border-radius: 8px;
   padding: 20px;
   margin: 20px 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
@@ -58,7 +59,7 @@
 
 .question-box label {
   font-weight: normal;
-  font-size: 1.2em; 
+  font-size: 1.2em;
   display: block;
   margin-bottom: 10px;
 }
@@ -72,28 +73,28 @@
 
 .get-answer-btn {
   margin-top: 20px;
-  background-color: #afd6f7; 
-  color: #96b9ed; 
+  background-color: #afd6f7;
+  color: #96b9ed;
   border-radius: 4px;
   padding: 10px 20px;
   border: none;
 }
 
 .get-answer-btn:hover {
-  background-color: #9ac8ef; 
+  background-color: #9ac8ef;
   color: white;
 }
 
 .question-box label {
   font-weight: normal;
-  font-size: 1.2em; 
+  font-size: 1.2em;
   display: block;
   margin-bottom: 10px;
 }
 
 .option-group .form-check-label {
   font-weight: normal;
-  font-size: 1em; 
+  font-size: 1em;
 }
 
 .button-group {
@@ -103,13 +104,50 @@
   margin-top: 20px;
 }
 
-.get-answer-btn {
-  margin-top: 10px;
+/* New Button Styling */
+/* Disabled Button Styling */
+button:disabled {
+  background-color: #4a4a4a !important; /* Neutral dark gray for disabled state */
+  color: #b3b3b3 !important; /* Light gray text */
+  border: none;
+  cursor: not-allowed;
 }
+
+/* Next Button Styling */
+button.next-btn {
+  background-color: #587e9f; /* Default dark blue-gray */
+  color: #f2f2f2; /* Light text */
+  border: 2px solid transparent;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+button.next-btn:hover:not(:disabled) {
+  background-color: black; /* Black background on hover */
+  border-color: #0affff; /* Neon blue border */
+}
+
+/* Submit Button Styling */
+button.submit-btn {
+  background-color: #0affff; /* Neon blue for default */
+  color: #1a1a1a; /* Dark text for contrast */
+  border: 2px solid transparent;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+button.submit-btn:hover:not(:disabled) {
+  background-color: black; /* Black background on hover */
+  border-color: #0affff; /* Neon blue border */
+}
+
 
 .progress-bar {
   background-color: #587e9f !important;
 }
+
 .progress {
   position: relative;
   height: 20px;
@@ -117,10 +155,11 @@
   border-radius: 5px;
   margin: 20px 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 800px; 
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }
+
 .progress-label {
   position: absolute;
   left: 50%;
@@ -132,35 +171,34 @@
   white-space: nowrap;
 }
 
-/* Loading Screen Styling */
 .loading-screen {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh; /* Cover the full screen */
-  background-color: rgba(0, 0, 0, 0.7); /* Dark background */
-  backdrop-filter: blur(5px); /* Slight blur for effect */
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
   color: #f2f2f2;
-  font-family: 'Orbitron', sans-serif; /* Matching font */
+  font-family: 'Orbitron', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   text-align: center;
-  z-index: 1000; /* Make sure it is above all other content */
+  z-index: 1000;
 }
 
 .loading-screen h3 {
   font-size: 2em;
-  color: #0affff; /* Neon blue */
+  color: #0affff;
   margin-bottom: 20px;
-  text-shadow: 0 0 10px #0affff, 0 0 20px #0affff; /* Glowing effect */
+  text-shadow: 0 0 10px #0affff, 0 0 20px #0affff;
 }
 
 .spinner {
-  border: 8px solid #f3f3f3; /* Light border */
-  border-top: 8px solid #0affff; /* Neon blue spinner */
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #0affff;
   border-radius: 50%;
   width: 60px;
   height: 60px;
@@ -168,14 +206,18 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .completion-message {
-  max-width: 850px; /* Match the progress bar's max-width */
-  margin: 10px auto; /* Center the message */
-  text-align: center; /* Center align the text */
-  padding: 10px 20px; /* Add some padding */
-  font-size: 1.1em; /* Slightly smaller text */
+  max-width: 850px;
+  margin: 10px auto;
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 1.1em;
 }

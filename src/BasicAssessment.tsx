@@ -193,17 +193,16 @@ export function BasicCareerAssessment(): React.JSX.Element {
       </Form>
 
       {allQuestionsCompleted && currentQuestionIndex === totalQuestions - 1 && (
-  <div className="completion-message">
-    <Alert variant="success" className="mt-3">
-      All questions have been completed! Click 'Submit' to view your results.
-    </Alert>
-  </div>
-)}
-
+        <div className="completion-message">
+          <Alert variant="success" className="mt-3">
+            All questions have been completed! Click 'Submit' to view your results.
+          </Alert>
+        </div>
+      )}
 
       <div className="button-group">
         <Button
-          variant="secondary"
+          className="next-btn"
           onClick={handlePrevious}
           disabled={currentQuestionIndex === 0}
         >
@@ -211,17 +210,15 @@ export function BasicCareerAssessment(): React.JSX.Element {
         </Button>
         {currentQuestionIndex < totalQuestions - 1 ? (
           <Button
-            variant="primary"
+            className="next-btn"
             onClick={handleNext}
-            disabled={
-              !answers[currentQuestion.name as keyof typeof answers]
-            }
+            disabled={!answers[currentQuestion.name as keyof typeof answers]}
           >
             Next
           </Button>
         ) : (
           <Button
-            variant="success"
+            className="submit-btn"
             onClick={submitAnswers}
             disabled={!allQuestionsCompleted}
           >

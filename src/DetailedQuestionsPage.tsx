@@ -146,7 +146,7 @@ const DetailedQuestionsPage = () => {
       </h1>
       {loading && (
         <div className="loading-screen">
-          <i className="bi bi-robot spinner-icon"></i> {}
+          <i className="bi bi-robot spinner-icon"></i>
           <h3>Hang tight! MechaMatcher is finding your career match...</h3>
         </div>
       )}
@@ -189,15 +189,16 @@ const DetailedQuestionsPage = () => {
         </div>
       </Form>
       {allQuestionsCompleted && currentQuestionIndex === totalQuestions - 1 && (
-  <div className="completion-message">
-    <Alert variant="success" className="mt-3">
-      All questions have been completed! Click 'Submit' to view your results.
-    </Alert>
-  </div>
-)}
+        <div className="completion-message">
+          <Alert variant="success" className="mt-3">
+            All questions have been completed! Click 'Submit' to view your results.
+          </Alert>
+        </div>
+      )}
       <div className="button-group">
         <Button
           variant="secondary"
+          className="next-btn"
           onClick={handlePrevious}
           disabled={currentQuestionIndex === 0}
         >
@@ -206,16 +207,16 @@ const DetailedQuestionsPage = () => {
         {currentQuestionIndex < totalQuestions - 1 ? (
           <Button
             variant="primary"
+            className="next-btn"
             onClick={handleNext}
-            disabled={
-              !answers[currentQuestion.name as keyof typeof answers]
-            }
+            disabled={!answers[currentQuestion.name as keyof typeof answers]}
           >
             Next
           </Button>
         ) : (
           <Button
             variant="success"
+            className="submit-btn"
             onClick={submitAnswers}
             disabled={!allQuestionsCompleted}
           >

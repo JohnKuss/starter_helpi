@@ -1,3 +1,4 @@
+/* General Styling for the Page */
 .basicAssessment {
   text-align: center;
   padding: 40px;
@@ -8,6 +9,8 @@
   font-family: 'Orbitron', sans-serif; /* Robotic font */
   color: #f2f2f2; /* Light text color */
 }
+
+/* Description Card Styling */
 .description-card {
   background: rgba(255, 255, 255, 0.1); /* Transparent background */
   backdrop-filter: blur(10px); /* Glass effect */
@@ -32,13 +35,7 @@
   margin-top: 10px;
 }
 
-.basicAssessment h1 {
-  color: #0affff; /* Neon blue for the title */
-  font-size: 2.5em;
-  margin-bottom: 20px;
-  text-shadow: 0 0 10px #0affff; /* Glowing effect */
-}
-
+/* Page Title Styling */
 .page-title {
   color: #0affff; /* Neon blue for the subheader */
   font-size: 2.5em;
@@ -46,11 +43,7 @@
   text-shadow: 0 0 10px #0affff; /* Glowing effect */
 }
 
-.basicAssessment-content {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
+/* Question Box Styling */
 .question-box {
   background-color: #1a1a1a; /* Dark background for the question box */
   border: 2px solid #0affff; /* Neon border */
@@ -70,12 +63,6 @@
   margin-bottom: 10px;
 }
 
-.option-group .form-check-label {
-  font-weight: normal;
-  font-size: 1.1em;
-  color: #f2f2f2;
-}
-
 .option-group {
   display: flex;
   flex-direction: column;
@@ -83,6 +70,13 @@
   margin-left: 20px;
 }
 
+.option-group .form-check-label {
+  font-weight: normal;
+  font-size: 1.1em;
+  color: #f2f2f2;
+}
+
+/* Progress Bar Styling */
 .progress-bar {
   background-color: #0affff !important; /* Neon blue progress */
   color: black;
@@ -108,9 +102,9 @@
   font-size: 1em;
   color: #0affff; /* Neon text for the progress label */
   font-weight: bold;
-  white-space: nowrap;
 }
 
+/* Button Styling */
 .button-group {
   display: flex;
   justify-content: center;
@@ -118,7 +112,8 @@
   margin-top: 20px;
 }
 
-.button-group button {
+button.next-btn,
+button.submit-btn {
   padding: 10px 20px;
   font-size: 1em;
   color: #1a1a1a; /* Dark text */
@@ -128,30 +123,19 @@
   transition: background-color 0.3s, transform 0.3s;
 }
 
-.button-group button:hover {
+button.next-btn:hover,
+button.submit-btn:hover {
   background-color: #1a1a1a; /* Inverse hover effect */
   color: #0affff;
   transform: translateY(-3px); /* Hover animation */
   border: 2px solid #0affff;
 }
 
-.result-link {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #0affff;
-  color: #1a1a1a;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background-color 0.3s, transform 0.3s;
-}
-
-.result-link:hover {
-  background-color: #1a1a1a;
-  color: #0affff;
-  transform: translateY(-3px); /* Hover animation */
-  border: 2px solid #0affff;
+button:disabled {
+  background-color: #4a4a4a !important; /* Neutral dark gray for disabled state */
+  color: #b3b3b3 !important; /* Light gray text */
+  border: none;
+  cursor: not-allowed;
 }
 
 /* Loading Screen Styling */
@@ -190,8 +174,12 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .spinner-icon {
@@ -210,6 +198,7 @@
   }
 }
 
+/* Completion Message */
 .completion-message {
   max-width: 850px; /* Match the progress bar's max-width */
   margin: 10px auto; /* Center the message */
@@ -217,7 +206,3 @@
   padding: 10px 20px; /* Add some padding */
   font-size: 1.1em; /* Slightly smaller text */
 }
-
-
-
-
