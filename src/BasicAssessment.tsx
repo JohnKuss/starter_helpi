@@ -17,6 +17,7 @@ export function BasicCareerAssessment(): React.JSX.Element {
     travelPreference: "",
   });
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null); // Added error state
   const navigate = useNavigate();
 
   const questions = [
@@ -105,6 +106,8 @@ export function BasicCareerAssessment(): React.JSX.Element {
     const apiKey = JSON.parse(localStorage.getItem("MYKEY") || '""') as string;
     const answerValues = Object.values(answers);
     setLoading(true);
+    setErrorMessage(null); // Clear previous error messages
+
     try {
       const response = await fetchCareerAdvice(
         apiKey,
@@ -114,6 +117,12 @@ export function BasicCareerAssessment(): React.JSX.Element {
       navigate("/results", { state: { response } });
     } catch (error) {
       console.error("Failed to fetch career advice:", error);
+
+      if (error instanceof Error && error.message.includes("401")) {
+        setErrorMessage("Invalid API Key. Please check your key and try again.");
+      } else {
+        setErrorMessage("An error occurred while generating the report. Please try again later.");
+      }
     } finally {
       setLoading(false);
     }
@@ -127,6 +136,12 @@ export function BasicCareerAssessment(): React.JSX.Element {
       <h1 className="page-title">
         <i className="bi bi-robot"></i> Basic Career Assessment
       </h1>
+
+      {errorMessage && ( // Display error message as a popup
+        <div className="error-message">
+          {errorMessage}
+        </div>
+      )}
 
       {loading && (
         <div className="loading-screen">

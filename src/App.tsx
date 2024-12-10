@@ -39,9 +39,7 @@ function App() {
         <nav>
           <ul className="nav-links">
             <li>
-              <Link to="/" className={isKeySubmitted ? "" : "disabled-link"}>
-                Home
-              </Link>
+              <Link to="/">Home</Link> {/* Always enabled */}
             </li>
             <li>
               <Link
@@ -78,21 +76,20 @@ function App() {
       {location.pathname === "/" && (
         <footer>
           <div className="api-key-container">
-  <Form.Control
-    type="password"
-    placeholder="Insert API Key Here"
-    onChange={changeKey}
-    className="api-key-input"
-  />
-  <Button
-    className="submit-button"
-    onClick={handleSubmit}
-    disabled={!key || key.trim() === ""} // Disable until a valid key is entered
-  >
-    Submit
-  </Button>
-</div>
-
+            <Form.Control
+              type="password"
+              placeholder="Insert API Key Here"
+              onChange={changeKey}
+              className="api-key-input"
+            />
+            <Button
+              className="submit-button"
+              onClick={handleSubmit}
+              disabled={!key || key.trim() === ""} // Disable until a valid key is entered
+            >
+              Submit
+            </Button>
+          </div>
         </footer>
       )}
     </div>
